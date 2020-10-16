@@ -1,0 +1,18 @@
+body {
+    background-color: lightskyblue;
+}
+
+.search-results-container {
+    display: flex;
+    background-color: white;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+
+.single-result-container {
+    display: flex;
+    background-color: mediumaquamarine;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+}
