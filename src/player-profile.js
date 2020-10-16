@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setLastAddedPlayer, setFullRoster } from "./actions";
+import {
+    setLastAddedPlayer,
+    setPlayersProfiles,
+    setFullRoster,
+    setSearchResults,
+} from "./actions";
 
 export default function PlayerProfile() {
     const dispatch = useDispatch();
 
     const players = useSelector((state) => state.playersData);
-    const lastAddedPlayer = useSelector((state) => state.lastPlayer);
-    const fullRoster = useSelector((state) => state.fullRoster);
+    // const lastAddedPlayer = useSelector((state) => state.lastPlayer);
+    // const fullRoster = useSelector((state) => state.fullRoster);
 
     // const [addedPlayer, setAddedPlayer] = useState();
     // const [fullRoster, setFullRoster] = useState();
@@ -50,10 +55,14 @@ export default function PlayerProfile() {
                             if (response.data) {
                                 dispatch(setLastAddedPlayer(response.data[0]));
                                 dispatch(setPlayersProfiles([]));
+                                dispatch(setSearchResults(false));
                             }
                         });
                 } else {
                     dispatch(setFullRoster(true));
+                    dispatch(setPlayersProfiles([]));
+                    dispatch(setSearchResults(false));
+                    dispatch(setLastAddedPlayer(false));
                 }
             })
             .catch((err) => {
@@ -64,7 +73,7 @@ export default function PlayerProfile() {
     return (
         <>
             <div className="search-results-container">
-                {players.length > 0 &&
+                {players &&
                     players.map((player, i) => {
                         return (
                             <div key={i} className="single-result-container">

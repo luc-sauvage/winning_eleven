@@ -2,14 +2,20 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PlayerProfile from "./player-profile";
 import { useDispatch, useSelector } from "react-redux";
-import { setPlayersProfiles, setSearchResults } from "./actions";
+import {
+    setPlayersProfiles,
+    setSearchResults,
+    setLastAddedPlayer,
+} from "./actions";
 
 export default function Players() {
     const dispatch = useDispatch();
     const [userInput, setUserInput] = useState("");
     const players = useSelector((state) => state.playersData);
+    const searchResults = useSelector((state) => state.searchResults);
     const lastAddedPlayer = useSelector((state) => state.lastPlayer);
-    const fullRoster = useSelector((state) => state.fullRoster);
+    const fullRoster = useSelector((state) => state.rosterStatus);
+
     // const [players, setPlayers] = useState([]);
 
     const handleChange = (e) => {
@@ -18,6 +24,7 @@ export default function Players() {
 
     const getPlayers = (userInput) => {
         (async () => {
+            dispatch(setLastAddedPlayer(false));
             dispatch(setSearchResults(true));
             try {
                 const { data } = await axios.get(
@@ -45,7 +52,7 @@ export default function Players() {
         <>
             <input name="player" onChange={handleChange}></input>
             <button onClick={() => getPlayers(userInput)}>Fetch API</button>
-            {players && <PlayerProfile />}
+            {searchResults && <PlayerProfile />}
             {lastAddedPlayer && (
                 <div>
                     {" "}
