@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const db = require("./db");
 const uidSafe = require("uid-safe");
+const { logic } = require("./logic.js");
+const mockStats = require("./final_stats.json");
+
 var cookieSession = require("cookie-session");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -40,6 +43,9 @@ app.get("/checkroster", (req, res) => {
 app.get("/stats", (req, res) => {
     db.fetchStats().then((dbStatResponse) => {
         console.log("stats db response:", dbStatResponse.rows);
+        const logicResults = logic(mockStats);
+        console.log("logic Results: ", logicResults);
+        // res.json(logicResults);
     })
 })
 
