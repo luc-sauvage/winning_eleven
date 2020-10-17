@@ -43,7 +43,7 @@ app.get("/checkroster", (req, res) => {
 app.get("/stats", (req, res) => {
     db.fetchStats().then((dbStatResponse) => {
         console.log("stats db response:", dbStatResponse.rows);
-        const logicResults = logic(mockStats);
+        const logicResults = logic(mockStats, 3);
         console.log("logic Results: ", logicResults);
         // res.json(logicResults);
     })

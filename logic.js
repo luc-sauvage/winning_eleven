@@ -1,4 +1,4 @@
-function logic (playersInfos) {
+function logic (playersInfos, matchDay) {
     // console.log("stats", stats);
     
     const weight = {
@@ -16,9 +16,18 @@ function logic (playersInfos) {
 
     function calculateFinalPoints(statistics) {
         // console.log("weight.rating", weight.rating);
-        console.log("statistics: ", statistics);
-        const weightedResults = statistics.games.rating * weight.rating; 
-        return weightedResults;
+        // console.log("statistics: ", statistics);
+        // console.log("matchDay:", matchDay);
+        const weightedResult = (
+            (statistics.games.rating * weight.rating) + 
+            (statistics.goals.total / matchDay) * weight.averageGoals);
+            console.log(
+                "statistics.games.rating", statistics.games.rating, 
+                "weight.rating", weight.rating, 
+                "statistics.goals.total", statistics.goals.total,
+                "matchDay", matchDay, 
+                "weight.averageGoals", weight.averageGoals);
+        return weightedResult;
     };
 
 
