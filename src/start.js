@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Players from "./players.js";
+import Overview from "./overview.js";
 
 // redux
 
@@ -9,6 +10,12 @@ import reduxPromise from "redux-promise";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import reducer from "./reducer.js";
+
+
+// routing
+
+import { BrowserRouter, Route, Link } from "react-router-dom";
+
 
 const store = createStore(
     reducer,
@@ -19,7 +26,10 @@ let elem;
 
 elem = (
     <Provider store={store}>
-        <Players />
+        <BrowserRouter>
+            <Route exact path="/" component={Players} />
+            <Route exact path="/overview" component={Overview} />
+        </BrowserRouter>
     </Provider>
 );
 
