@@ -37,6 +37,12 @@ app.get("/checkroster", (req, res) => {
         });
 });
 
+app.get("/stats", (req, res) => {
+    db.fetchStats().then((dbStatResponse) => {
+        console.log("stats db response:", dbStatResponse.rows);
+    })
+})
+
 app.get("*", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });

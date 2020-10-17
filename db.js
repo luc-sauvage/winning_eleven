@@ -14,3 +14,8 @@ module.exports.checkRoster = () => {
     const q = `SELECT COUNT(*) FROM roster`;
     return db.query(q);
 };
+
+module.exports.fetchStats = () => {
+    const q = `SELECT * FROM statistics`;
+    return db.query(q);
+}
