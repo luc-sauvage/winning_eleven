@@ -1,4 +1,4 @@
-function logic (stats) {
+function logic (playersInfos) {
     // console.log("stats", stats);
     
     const weight = {
@@ -12,11 +12,23 @@ function logic (stats) {
         averageMissedPenalties: -9,
     }
 
-    const resultsArr = stats.map((stat, i) => {
-        console.log(stat.player);
-        const resultObj = {
-            playerId: stat.player.id,
 
+
+    function calculateFinalPoints(statistics) {
+        // console.log("weight.rating", weight.rating);
+        console.log("statistics: ", statistics);
+        const weightedResults = statistics.games.rating * weight.rating; 
+        return weightedResults;
+    };
+
+
+
+    const resultsArr = playersInfos.map((playerInfo, i) => {
+        // console.log(stat.player);
+        const finalPoints = calculateFinalPoints(playerInfo.statistics[0]);
+        const resultObj = {
+            ...playerInfo,
+            totalPoints: finalPoints,
         }
         console.log(resultObj);
         return resultObj;
