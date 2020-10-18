@@ -41,3 +41,14 @@ export async function setFullRoster(rosterStatus) {
         console.log("error", error);
     }
 }
+
+export async function setMatchDay (matchDay) {
+    try {
+        return {
+            type: "SET_MATCHDAY",
+            matchDay,
+        };
+    } catch (error) {
+        console.log("error", error);
+    }
+}

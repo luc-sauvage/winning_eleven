@@ -67,10 +67,11 @@ app.get("/checkroster", (req, res) => {
         });
 });
 
-app.get("/stats", (req, res) => {
+app.get("/stats/:matchDay", (req, res) => {
     db.fetchStats().then((dbStatResponse) => {
         console.log("stats db response:", dbStatResponse.rows);
-        const logicResults = logic(mockStats, 3);
+        console.log("matchDay", req.params.matchDay);
+        const logicResults = logic(mockStats, req.params.matchDay);
         console.log("logic Results: ", logicResults);
         // res.json(logicResults);
     })

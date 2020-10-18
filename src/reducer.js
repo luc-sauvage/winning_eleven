@@ -27,5 +27,12 @@ export default function reducer(state = {}, action) {
         };
     }
 
+    if (action.type === "SET_MATCHDAY") {
+        state = {
+            ...state,
+            matchDay: action.matchDay,
+        };
+    }
+
     return state;
 }
