@@ -20,13 +20,14 @@ function logic (playersInfos, matchDay) {
         // console.log("matchDay:", matchDay);
         const weightedResult = (
             (statistics.games.rating * weight.rating) + 
-            (statistics.goals.total / matchDay) * weight.averageGoals);
-            console.log(
-                "statistics.games.rating", statistics.games.rating, 
-                "weight.rating", weight.rating, 
-                "statistics.goals.total", statistics.goals.total,
-                "matchDay", matchDay, 
-                "weight.averageGoals", weight.averageGoals);
+            (statistics.goals.total / matchDay) * weight.averageGoals +
+            (statistics.goals.assists / matchDay) * weight.averageAssists +
+            (statistics.dribbles.success / statistics.dribbles.attempts) * weight.averageDribblings + 
+            (statistics.cards.yellow / matchDay) * weight.averageYellowCards +
+            (statistics.cards.yellow / matchDay) * weight.averageRedCards + 
+            (statistics.games.lineups / matchDay) * weight.lineupLikelyhood + 
+            (statistics.penalty.missed / statistics.games.appearences) * weight.averageMissedPenalties);
+            
         return weightedResult;
     };
 

@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Players from "./players.js";
 import Overview from "./overview.js";
+import Registration from "./registration.js";
+import Login from "./login.js";
 
 // redux
 
@@ -27,6 +29,8 @@ let elem;
 elem = (
     <Provider store={store}>
         <BrowserRouter>
+            <Route exact path="/registration" component={Registration}/>
+            <Route exact path="/login" component={Login}/>
             <Route exact path="/" component={Players} />
             <Route exact path="/overview" component={Overview} />
         </BrowserRouter>
