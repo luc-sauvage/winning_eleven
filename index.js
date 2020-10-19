@@ -6,7 +6,7 @@ const { logic } = require("./logic.js");
 const mockStats = require("./final_stats.json");
 const { compare, hash } = require("./bc");
 const csurf = require("csurf");
-
+const axios = require("axios");
 var cookieSession = require("cookie-session");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -69,23 +69,55 @@ app.get("/checkroster", (req, res) => {
 app.get("/stats/:matchDay", (req, res) => {
     db.fetchStats().then((dbStatResponse) => {
         console.log("stats db response:", dbStatResponse.rows);
-        if (dbStatResponse.rows.length == 0) {
-            /// this query must take place if statistics table is still empty
+        if (dbStatResponse.rows[0].match_day === null) {
+            db.setMatchDay(req.params.matchDay).then((dbStatSecondResponse) => {
+                const logicResults = logic(
+                    dbStatSecondResponse.rows,
+                    req.params.matchDay
+                );
+                console.log("logicResults matchDay just added: ", logicResults);
+                /* res.json(logicResults); */
+            });
         } else if (dbStatResponse.rows[0].match_day === req.params.matchDay) {
             // this is the query for when stats have already been fetched from API and stored in database
             // remember to call the statistics table column "match_day"
+
             const logicResults = logic(
                 dbStatResponse.rows,
                 req.params.matchDay
             );
-            res.json(logicResults);
+            console.log("logicResults matchDay didn't change: ", logicResults);
+            /* res.json(logicResults); */
         } else {
+            console.log("updating stats");
+            const playerIds = dbStatResponse.rows.map((player) => {
+                const playerId = player.player_id;
+                return playerId;
+            });
+            console.log("logging playerId array: ", playerIds);
+            const allPlayersInfo = [];
+            for (let playerId of playerIds) {
+                const playerInfo = axios.get(
+                    `https://v3.football.api-sports.io/players?id=${playerId}&season=2020`,
+                    {
+                        headers: {
+                            "x-rapidapi-host": "v3.football.api-sports.io",
+                            "x-rapidapi-key":
+                                "4e1921e65c5733449f4bfbfc9eb4616c",
+                        },
+                    }
+                );
+                console.log("playerInfo: ", playerInfo);
+
+                allPlayersInfo.push(playerInfo);
+            }
+            Promise.all(allPlayersInfo).then((arrOfResults) => {
+                console.log("resolved");
+                arrOfResults.forEach(({ data }) => {
+                    console.log(data.response);
+                });
+            });
         }
-
-        console.log("matchDay", req.params.matchDay);
-
-        console.log("logic Results: ", logicResults);
-        // res.json(logicResults);
     });
 });
 

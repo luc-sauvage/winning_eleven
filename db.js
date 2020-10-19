@@ -54,7 +54,8 @@ module.exports.addPlayer = (
     commited_penalties,
     scored_penalties,
     missed_penalties,
-    saved_penalties
+    saved_penalties,
+    user_id
 ) => {
     const q = `INSERT into roster (
         player_id, 
@@ -188,4 +189,12 @@ module.exports.checkRoster = () => {
 module.exports.fetchStats = () => {
     const q = `SELECT * FROM roster`;
     return db.query(q);
+};
+
+module.exports.setMatchDay = (matchDay) => {
+    const q = `UPDATE roster 
+        SET match_day = $1 
+        RETURNING *`;
+    const params = [matchDay];
+    return db.query(q, params);
 };

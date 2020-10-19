@@ -21,7 +21,7 @@ export default function PlayerProfile() {
 
     function addPlayer(selectedPlayerInfo) {
         const selectedPlayerPlayerInfo = selectedPlayerInfo.player;
-        const selectedPlayerStatistics = selectedPlayerInfo.statistics;
+        const selectedPlayerStatistics = selectedPlayerInfo.statistics[0];
         axios
             .get("/checkroster")
             .then((responseCheckRoster) => {

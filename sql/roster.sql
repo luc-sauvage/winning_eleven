@@ -41,5 +41,6 @@ CREATE TABLE roster(
       missed_penalties INT,
       saved_penalties INT,
       user_id INT REFERENCES users(id) NOT NULL,
+      match_day INT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
