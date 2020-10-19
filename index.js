@@ -114,12 +114,20 @@ app.get("/stats/:matchDay", (req, res) => {
 
                 allPlayersInfo.push(playerInfo);
             }
-            Promise.all(allPlayersInfo).then((arrOfResults) => {
-                console.log("promise resolved");
-                arrOfResults.forEach(({ data }) => {
-                    console.log(data.response);
+            Promise.all(allPlayersInfo)
+                .then((arrOfResults) => {
+                    console.log("promise resolved");
+                    console.log("arrOfResults: ", arrOfResults);
+                    return arrOfResults.map((result) => {
+                        return result.data.response[0];
+                    });
+                })
+                .then((results) => {
+                    console.log("results: ", results);
+                })
+                .catch((err) => {
+                    console.log(err);
                 });
-            });
         }
     });
 });
