@@ -63,6 +63,7 @@ export default function Players() {
             {fullRoster && (
                 <div>You've reached the maximum amount of players!</div>
             )}
+
         </>
     );
 }

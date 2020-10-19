@@ -70,8 +70,19 @@ app.get("/checkroster", (req, res) => {
 app.get("/stats/:matchDay", (req, res) => {
     db.fetchStats().then((dbStatResponse) => {
         console.log("stats db response:", dbStatResponse.rows);
+        if (dbStatResponse.rows.length == 0) {
+            /// this query must take place if statistics table is still empty
+        } else if (dbStatResponse.rows[0].match_day === req.params.matchDay) {
+            // this is the query for when stats have already been fetched from API and stored in database
+            // remember to call the statistics table column "match_day"
+            const logicResults = logic(dbStatResponse.rows, req.params.matchDay);
+            res.json(logicResults);
+        } else {
+            
+        }
+
         console.log("matchDay", req.params.matchDay);
-        const logicResults = logic(mockStats, req.params.matchDay);
+        
         console.log("logic Results: ", logicResults);
         // res.json(logicResults);
     })

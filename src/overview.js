@@ -10,6 +10,7 @@ export default function Overview () {
     const state = useSelector((state) => state);
 
     useEffect(() => {
+        
         // query to fetch games played by single teams... in this specific case first team in ranking - INCOMPLETE 
         // axios.get(
         //     `https://v3.football.api-sports.io/standings?league=135&season=2020`,
