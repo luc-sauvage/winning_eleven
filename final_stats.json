@@ -1,1025 +1,1081 @@
 [
     {
         "player": {
-          "id": 907,
-          "name": "Romelu Lukaku Menama",
-          "firstname": "Romelu",
-          "lastname": "Lukaku Menama",
-          "age": 27,
-          "birth": {
-            "date": "1993-05-13",
-            "place": "Antwerpen",
-            "country": "Belgium"
-          },
-          "nationality": "Belgium",
-          "height": "190 cm",
-          "weight": "94 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/907.png"
+            "id": 907,
+            "name": "Romelu Lukaku Menama",
+            "firstname": "Romelu",
+            "lastname": "Lukaku Menama",
+            "age": 27,
+            "birth": {
+                "date": "1993-05-13",
+                "place": "Antwerpen",
+                "country": "Belgium"
+            },
+            "nationality": "Belgium",
+            "height": "190 cm",
+            "weight": "94 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/907.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 505,
-              "name": "Inter",
-              "logo": "https://media.api-sports.io/football/teams/505.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 3,
-              "lineups": 3,
-              "minutes": 245,
-              "number": null,
-              "position": "Attacker",
-              "rating": "7.400000",
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 1, "bench": 0 },
-            "shots": { "total": 9, "on": 4 },
-            "goals": {
-              "total": 3,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": 76, "key": 2, "accuracy": 21 },
-            "tackles": { "total": 1, "blocks": null, "interceptions": null },
-            "duels": { "total": 24, "won": 13 },
-            "dribbles": { "attempts": 8, "success": 5, "past": null },
-            "fouls": { "drawn": 4, "committed": 4 },
-            "cards": { "yellow": 1, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 505,
+                    "name": "Inter",
+                    "logo": "https://media.api-sports.io/football/teams/505.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 3,
+                    "lineups": 3,
+                    "minutes": 245,
+                    "number": null,
+                    "position": "Attacker",
+                    "rating": "7.400000",
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 1, "bench": 0 },
+                "shots": { "total": 9, "on": 4 },
+                "goals": {
+                    "total": 3,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": 76, "key": 2, "accuracy": 21 },
+                "tackles": {
+                    "total": 1,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": 24, "won": 13 },
+                "dribbles": { "attempts": 8, "success": 5, "past": null },
+                "fouls": { "drawn": 4, "committed": 4 },
+                "cards": { "yellow": 1, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 1843,
-          "name": "J. Lukaku",
-          "firstname": "Jordan Zacharie",
-          "lastname": "Lukaku Menama Mokelenge",
-          "age": 26,
-          "birth": {
-            "date": "1994-07-25",
-            "place": "Antwerpen",
-            "country": "Belgium"
-          },
-          "nationality": "Belgium",
-          "height": "177 cm",
-          "weight": "86 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/1843.png"
+            "id": 1843,
+            "name": "J. Lukaku",
+            "firstname": "Jordan Zacharie",
+            "lastname": "Lukaku Menama Mokelenge",
+            "age": 26,
+            "birth": {
+                "date": "1994-07-25",
+                "place": "Antwerpen",
+                "country": "Belgium"
+            },
+            "nationality": "Belgium",
+            "height": "177 cm",
+            "weight": "86 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/1843.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 487,
-              "name": "Lazio",
-              "logo": "https://media.api-sports.io/football/teams/487.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 0,
-              "lineups": 0,
-              "minutes": 0,
-              "number": null,
-              "position": "Defender",
-              "rating": null,
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 1 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": null, "key": null, "accuracy": null },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": null, "won": null },
-            "dribbles": { "attempts": null, "success": null, "past": null },
-            "fouls": { "drawn": null, "committed": null },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 487,
+                    "name": "Lazio",
+                    "logo": "https://media.api-sports.io/football/teams/487.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 0,
+                    "lineups": 0,
+                    "minutes": 0,
+                    "number": null,
+                    "position": "Defender",
+                    "rating": null,
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 1 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": null, "key": null, "accuracy": null },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": null, "won": null },
+                "dribbles": { "attempts": null, "success": null, "past": null },
+                "fouls": { "drawn": null, "committed": null },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      }, 
-      {
+    },
+    {
         "player": {
-          "id": 30768,
-          "name": "Pedro Miguel Almeida Lopes Pereira",
-          "firstname": "Pedro Miguel",
-          "lastname": "Almeida Lopes Pereira",
-          "age": 22,
-          "birth": {
-            "date": "1998-01-22",
-            "place": "Vendas Novas",
-            "country": "Portugal"
-          },
-          "nationality": "Portugal",
-          "height": "182 cm",
-          "weight": "77 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/30768.png"
+            "id": 30768,
+            "name": "Pedro Miguel Almeida Lopes Pereira",
+            "firstname": "Pedro Miguel",
+            "lastname": "Almeida Lopes Pereira",
+            "age": 22,
+            "birth": {
+                "date": "1998-01-22",
+                "place": "Vendas Novas",
+                "country": "Portugal"
+            },
+            "nationality": "Portugal",
+            "height": "182 cm",
+            "weight": "77 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/30768.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 501,
-              "name": "Crotone",
-              "logo": "https://media.api-sports.io/football/teams/501.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 2,
-              "lineups": 2,
-              "minutes": 156,
-              "number": null,
-              "position": "Defender",
-              "rating": "6.600000",
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 2, "bench": 0 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": 49, "key": 3, "accuracy": 17 },
-            "tackles": { "total": 4, "blocks": 1, "interceptions": 1 },
-            "duels": { "total": 15, "won": 6 },
-            "dribbles": { "attempts": 3, "success": 1, "past": null },
-            "fouls": { "drawn": null, "committed": 3 },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 501,
+                    "name": "Crotone",
+                    "logo": "https://media.api-sports.io/football/teams/501.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 2,
+                    "lineups": 2,
+                    "minutes": 156,
+                    "number": null,
+                    "position": "Defender",
+                    "rating": "6.600000",
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 2, "bench": 0 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": 49, "key": 3, "accuracy": 17 },
+                "tackles": { "total": 4, "blocks": 1, "interceptions": 1 },
+                "duels": { "total": 15, "won": 6 },
+                "dribbles": { "attempts": 3, "success": 1, "past": null },
+                "fouls": { "drawn": null, "committed": 3 },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 30781,
-          "name": "Miguel Veloso",
-          "firstname": "Miguel Lu\u00eds",
-          "lastname": "Pinto Veloso",
-          "age": 34,
-          "birth": {
-            "date": "1986-05-11",
-            "place": "Coimbra",
-            "country": "Portugal"
-          },
-          "nationality": "Portugal",
-          "height": "180 cm",
-          "weight": "79 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/30781.png"
+            "id": 30781,
+            "name": "Miguel Veloso",
+            "firstname": "Miguel Lu\u00eds",
+            "lastname": "Pinto Veloso",
+            "age": 34,
+            "birth": {
+                "date": "1986-05-11",
+                "place": "Coimbra",
+                "country": "Portugal"
+            },
+            "nationality": "Portugal",
+            "height": "180 cm",
+            "weight": "79 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/30781.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 504,
-              "name": "Verona",
-              "logo": "https://media.api-sports.io/football/teams/504.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 2,
-              "lineups": 2,
-              "minutes": 180,
-              "number": null,
-              "position": "Midfielder",
-              "rating": "6.600000",
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 0 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": 103, "key": null, "accuracy": 40 },
-            "tackles": { "total": 4, "blocks": null, "interceptions": 1 },
-            "duels": { "total": 19, "won": 8 },
-            "dribbles": { "attempts": null, "success": null, "past": null },
-            "fouls": { "drawn": 2, "committed": 2 },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 504,
+                    "name": "Verona",
+                    "logo": "https://media.api-sports.io/football/teams/504.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 2,
+                    "lineups": 2,
+                    "minutes": 180,
+                    "number": null,
+                    "position": "Midfielder",
+                    "rating": "6.600000",
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 0 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": 103, "key": null, "accuracy": 40 },
+                "tackles": { "total": 4, "blocks": null, "interceptions": 1 },
+                "duels": { "total": 19, "won": 8 },
+                "dribbles": { "attempts": null, "success": null, "past": null },
+                "fouls": { "drawn": 2, "committed": 2 },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 1646,
-          "name": "Lucas Paquet\u00e1",
-          "firstname": "Lucas",
-          "lastname": "Tolentino Coelho de Lima",
-          "age": 23,
-          "birth": {
-            "date": "1997-08-27",
-            "place": "Rio de Janeiro",
-            "country": "Brazil"
-          },
-          "nationality": "Brazil",
-          "height": "180 cm",
-          "weight": "72 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/1646.png"
+            "id": 1646,
+            "name": "Lucas Paquet\u00e1",
+            "firstname": "Lucas",
+            "lastname": "Tolentino Coelho de Lima",
+            "age": 23,
+            "birth": {
+                "date": "1997-08-27",
+                "place": "Rio de Janeiro",
+                "country": "Brazil"
+            },
+            "nationality": "Brazil",
+            "height": "180 cm",
+            "weight": "72 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/1646.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 489,
-              "name": "AC Milan",
-              "logo": "https://media.api-sports.io/football/teams/489.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 0,
-              "lineups": 0,
-              "minutes": 0,
-              "number": null,
-              "position": "Midfielder",
-              "rating": null,
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 2 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": null, "key": null, "accuracy": null },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": null, "won": null },
-            "dribbles": { "attempts": null, "success": null, "past": null },
-            "fouls": { "drawn": null, "committed": null },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 489,
+                    "name": "AC Milan",
+                    "logo": "https://media.api-sports.io/football/teams/489.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 0,
+                    "lineups": 0,
+                    "minutes": 0,
+                    "number": null,
+                    "position": "Midfielder",
+                    "rating": null,
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 2 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": null, "key": null, "accuracy": null },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": null, "won": null },
+                "dribbles": { "attempts": null, "success": null, "past": null },
+                "fouls": { "drawn": null, "committed": null },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 1858,
-          "name": "Lucas Leiva",
-          "firstname": "Lucas",
-          "lastname": "Pezzini Leiva",
-          "age": 33,
-          "birth": {
-            "date": "1987-01-09",
-            "place": "Dourados",
-            "country": "Brazil"
-          },
-          "nationality": "Brazil",
-          "height": "179 cm",
-          "weight": "74 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/1858.png"
+            "id": 1858,
+            "name": "Lucas Leiva",
+            "firstname": "Lucas",
+            "lastname": "Pezzini Leiva",
+            "age": 33,
+            "birth": {
+                "date": "1987-01-09",
+                "place": "Dourados",
+                "country": "Brazil"
+            },
+            "nationality": "Brazil",
+            "height": "179 cm",
+            "weight": "74 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/1858.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 487,
-              "name": "Lazio",
-              "logo": "https://media.api-sports.io/football/teams/487.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 2,
-              "lineups": 2,
-              "minutes": 112,
-              "number": null,
-              "position": "Midfielder",
-              "rating": "6.600000",
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 2, "bench": 0 },
-            "shots": { "total": 1, "on": 1 },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": 60, "key": null, "accuracy": 26 },
-            "tackles": { "total": 4, "blocks": null, "interceptions": 3 },
-            "duels": { "total": 14, "won": 6 },
-            "dribbles": { "attempts": 2, "success": null, "past": null },
-            "fouls": { "drawn": 1, "committed": 4 },
-            "cards": { "yellow": 2, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 487,
+                    "name": "Lazio",
+                    "logo": "https://media.api-sports.io/football/teams/487.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 2,
+                    "lineups": 2,
+                    "minutes": 112,
+                    "number": null,
+                    "position": "Midfielder",
+                    "rating": "6.600000",
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 2, "bench": 0 },
+                "shots": { "total": 1, "on": 1 },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": 60, "key": null, "accuracy": 26 },
+                "tackles": { "total": 4, "blocks": null, "interceptions": 3 },
+                "duels": { "total": 14, "won": 6 },
+                "dribbles": { "attempts": 2, "success": null, "past": null },
+                "fouls": { "drawn": 1, "committed": 4 },
+                "cards": { "yellow": 2, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 30554,
-          "name": "Luca Pellegrini",
-          "firstname": "Luca",
-          "lastname": "Pellegrini",
-          "age": 21,
-          "birth": {
-            "date": "1999-03-07",
-            "place": "Roma",
-            "country": "Italy"
-          },
-          "nationality": "Italy",
-          "height": "178 cm",
-          "weight": "72 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/30554.png"
+            "id": 30554,
+            "name": "Luca Pellegrini",
+            "firstname": "Luca",
+            "lastname": "Pellegrini",
+            "age": 21,
+            "birth": {
+                "date": "1999-03-07",
+                "place": "Roma",
+                "country": "Italy"
+            },
+            "nationality": "Italy",
+            "height": "178 cm",
+            "weight": "72 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/30554.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 495,
-              "name": "Genoa",
-              "logo": "https://media.api-sports.io/football/teams/495.png"
+            {
+                "team": {
+                    "id": 495,
+                    "name": "Genoa",
+                    "logo": "https://media.api-sports.io/football/teams/495.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 1,
+                    "lineups": 1,
+                    "minutes": 54,
+                    "number": null,
+                    "position": "Defender",
+                    "rating": "5.900000",
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 1, "bench": 0 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": 31, "key": null, "accuracy": 29 },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": 10, "won": 1 },
+                "dribbles": { "attempts": 3, "success": 1, "past": null },
+                "fouls": { "drawn": null, "committed": 2 },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 1,
-              "lineups": 1,
-              "minutes": 54,
-              "number": null,
-              "position": "Defender",
-              "rating": "5.900000",
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 1, "bench": 0 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": 31, "key": null, "accuracy": 29 },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": 10, "won": 1 },
-            "dribbles": { "attempts": 3, "success": 1, "past": null },
-            "fouls": { "drawn": null, "committed": 2 },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 496,
+                    "name": "Juventus",
+                    "logo": "https://media.api-sports.io/football/teams/496.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 0,
+                    "lineups": 0,
+                    "minutes": 0,
+                    "number": null,
+                    "position": "Defender",
+                    "rating": "5.900000",
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 0 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": 31, "key": null, "accuracy": 29 },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": 10, "won": 1 },
+                "dribbles": { "attempts": 3, "success": 1, "past": null },
+                "fouls": { "drawn": null, "committed": 2 },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          },
-          {
-            "team": {
-              "id": 496,
-              "name": "Juventus",
-              "logo": "https://media.api-sports.io/football/teams/496.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 0,
-              "lineups": 0,
-              "minutes": 0,
-              "number": null,
-              "position": "Defender",
-              "rating": "5.900000",
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 0 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": 31, "key": null, "accuracy": 29 },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": 10, "won": 1 },
-            "dribbles": { "attempts": 3, "success": 1, "past": null },
-            "fouls": { "drawn": null, "committed": 2 },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
-            }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 30930,
-          "name": "Lucas Martello Felippe Nascimento",
-          "firstname": "Lucas Martello",
-          "lastname": "Felippe Nascimento",
-          "age": 20,
-          "birth": {
-            "date": "2000-05-03",
-            "place": "S\u00e3o Paulo",
-            "country": "Brazil"
-          },
-          "nationality": "Brazil",
-          "height": "178 cm",
-          "weight": null,
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/30930.png"
+            "id": 30930,
+            "name": "Lucas Martello Felippe Nascimento",
+            "firstname": "Lucas Martello",
+            "lastname": "Felippe Nascimento",
+            "age": 20,
+            "birth": {
+                "date": "2000-05-03",
+                "place": "S\u00e3o Paulo",
+                "country": "Brazil"
+            },
+            "nationality": "Brazil",
+            "height": "178 cm",
+            "weight": null,
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/30930.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 504,
-              "name": "Verona",
-              "logo": "https://media.api-sports.io/football/teams/504.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 0,
-              "lineups": 0,
-              "minutes": 0,
-              "number": null,
-              "position": "Midfielder",
-              "rating": null,
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 2 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": null, "key": null, "accuracy": null },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": null, "won": null },
-            "dribbles": { "attempts": null, "success": null, "past": null },
-            "fouls": { "drawn": null, "committed": null },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 504,
+                    "name": "Verona",
+                    "logo": "https://media.api-sports.io/football/teams/504.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 0,
+                    "lineups": 0,
+                    "minutes": 0,
+                    "number": null,
+                    "position": "Midfielder",
+                    "rating": null,
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 2 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": null, "key": null, "accuracy": null },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": null, "won": null },
+                "dribbles": { "attempts": null, "success": null, "past": null },
+                "fouls": { "drawn": null, "committed": null },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 31853,
-          "name": "M. De Luca",
-          "firstname": "Manuel",
-          "lastname": "De Luca",
-          "age": 22,
-          "birth": {
-            "date": "1998-07-17",
-            "place": "Bolzano",
-            "country": "Italy"
-          },
-          "nationality": "Italy",
-          "height": "190 cm",
-          "weight": "75 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/31853.png"
+            "id": 31853,
+            "name": "M. De Luca",
+            "firstname": "Manuel",
+            "lastname": "De Luca",
+            "age": 22,
+            "birth": {
+                "date": "1998-07-17",
+                "place": "Bolzano",
+                "country": "Italy"
+            },
+            "nationality": "Italy",
+            "height": "190 cm",
+            "weight": "75 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/31853.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 491,
-              "name": "Chievo",
-              "logo": "https://media.api-sports.io/football/teams/491.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 0,
-              "lineups": 0,
-              "minutes": 0,
-              "number": null,
-              "position": "Attacker",
-              "rating": null,
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 0 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": null,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": null, "key": null, "accuracy": null },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": null, "won": null },
-            "dribbles": { "attempts": null, "success": null, "past": null },
-            "fouls": { "drawn": null, "committed": null },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": null,
-              "missed": null,
-              "saved": null
+            {
+                "team": {
+                    "id": 491,
+                    "name": "Chievo",
+                    "logo": "https://media.api-sports.io/football/teams/491.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 0,
+                    "lineups": 0,
+                    "minutes": 0,
+                    "number": null,
+                    "position": "Attacker",
+                    "rating": null,
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 0 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": null,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": null, "key": null, "accuracy": null },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": null, "won": null },
+                "dribbles": { "attempts": null, "success": null, "past": null },
+                "fouls": { "drawn": null, "committed": null },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": null,
+                    "missed": null,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 281372,
-          "name": "I. Lucatelli",
-          "firstname": "Igor",
-          "lastname": "Lucatelli",
-          "age": 17,
-          "birth": { "date": "2003-08-21", "place": null, "country": "Italy" },
-          "nationality": "Italy",
-          "height": null,
-          "weight": null,
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/281372.png"
+            "id": 281372,
+            "name": "I. Lucatelli",
+            "firstname": "Igor",
+            "lastname": "Lucatelli",
+            "age": 17,
+            "birth": {
+                "date": "2003-08-21",
+                "place": null,
+                "country": "Italy"
+            },
+            "nationality": "Italy",
+            "height": null,
+            "weight": null,
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/281372.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 506,
-              "name": "Benevento",
-              "logo": "https://media.api-sports.io/football/teams/506.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 0,
-              "lineups": 0,
-              "minutes": 0,
-              "number": null,
-              "position": "Goalkeeper",
-              "rating": null,
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 1 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": null, "key": null, "accuracy": null },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": null, "won": null },
-            "dribbles": { "attempts": null, "success": null, "past": null },
-            "fouls": { "drawn": null, "committed": null },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": 0
+            {
+                "team": {
+                    "id": 506,
+                    "name": "Benevento",
+                    "logo": "https://media.api-sports.io/football/teams/506.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 0,
+                    "lineups": 0,
+                    "minutes": 0,
+                    "number": null,
+                    "position": "Goalkeeper",
+                    "rating": null,
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 1 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": null, "key": null, "accuracy": null },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": null, "won": null },
+                "dribbles": { "attempts": null, "success": null, "past": null },
+                "fouls": { "drawn": null, "committed": null },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": 0
+                }
             }
-          }
         ]
-      },
-       {
+    },
+    {
         "player": {
-          "id": 201,
-          "name": "Marcelo Brozovi\u0107",
-          "firstname": "Marcelo",
-          "lastname": "Brozovi\u0107",
-          "age": 28,
-          "birth": {
-            "date": "1992-11-16",
-            "place": "Zagreb",
-            "country": "Croatia"
-          },
-          "nationality": "Croatia",
-          "height": "181 cm",
-          "weight": "68 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/201.png"
+            "id": 201,
+            "name": "Marcelo Brozovi\u0107",
+            "firstname": "Marcelo",
+            "lastname": "Brozovi\u0107",
+            "age": 28,
+            "birth": {
+                "date": "1992-11-16",
+                "place": "Zagreb",
+                "country": "Croatia"
+            },
+            "nationality": "Croatia",
+            "height": "181 cm",
+            "weight": "68 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/201.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 505,
-              "name": "Inter",
-              "logo": "https://media.api-sports.io/football/teams/505.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 3,
-              "lineups": 1,
-              "minutes": 116,
-              "number": null,
-              "position": "Midfielder",
-              "rating": "6.866666",
-              "captain": false
-            },
-            "substitutes": { "in": 2, "out": 1, "bench": 2 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": 122, "key": 3, "accuracy": 37 },
-            "tackles": { "total": 2, "blocks": 1, "interceptions": 4 },
-            "duels": { "total": 11, "won": 5 },
-            "dribbles": { "attempts": 2, "success": 2, "past": null },
-            "fouls": { "drawn": null, "committed": 2 },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 505,
+                    "name": "Inter",
+                    "logo": "https://media.api-sports.io/football/teams/505.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 3,
+                    "lineups": 1,
+                    "minutes": 116,
+                    "number": null,
+                    "position": "Midfielder",
+                    "rating": "6.866666",
+                    "captain": false
+                },
+                "substitutes": { "in": 2, "out": 1, "bench": 2 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": 122, "key": 3, "accuracy": 37 },
+                "tackles": { "total": 2, "blocks": 1, "interceptions": 4 },
+                "duels": { "total": 11, "won": 5 },
+                "dribbles": { "attempts": 2, "success": 2, "past": null },
+                "fouls": { "drawn": null, "committed": 2 },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 30764,
-          "name": "F. Marchetti",
-          "firstname": "Federico",
-          "lastname": "Marchetti",
-          "age": 37,
-          "birth": {
-            "date": "1983-02-07",
-            "place": "Bassano del Grappa",
-            "country": "Italy"
-          },
-          "nationality": "Italy",
-          "height": "188 cm",
-          "weight": "76 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/30764.png"
+            "id": 30764,
+            "name": "F. Marchetti",
+            "firstname": "Federico",
+            "lastname": "Marchetti",
+            "age": 37,
+            "birth": {
+                "date": "1983-02-07",
+                "place": "Bassano del Grappa",
+                "country": "Italy"
+            },
+            "nationality": "Italy",
+            "height": "188 cm",
+            "weight": "76 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/30764.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 495,
-              "name": "Genoa",
-              "logo": "https://media.api-sports.io/football/teams/495.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 1,
-              "lineups": 1,
-              "minutes": 90,
-              "number": null,
-              "position": "Goalkeeper",
-              "rating": "5.300000",
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 1 },
-            "shots": { "total": null, "on": null },
-            "goals": { "total": 0, "conceded": 6, "assists": null, "saves": 3 },
-            "passes": { "total": 24, "key": null, "accuracy": 16 },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": null, "won": null },
-            "dribbles": { "attempts": null, "success": null, "past": null },
-            "fouls": { "drawn": null, "committed": null },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": 0
+            {
+                "team": {
+                    "id": 495,
+                    "name": "Genoa",
+                    "logo": "https://media.api-sports.io/football/teams/495.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 1,
+                    "lineups": 1,
+                    "minutes": 90,
+                    "number": null,
+                    "position": "Goalkeeper",
+                    "rating": "5.300000",
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 1 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 6,
+                    "assists": null,
+                    "saves": 3
+                },
+                "passes": { "total": 24, "key": null, "accuracy": 16 },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": null, "won": null },
+                "dribbles": { "attempts": null, "success": null, "past": null },
+                "fouls": { "drawn": null, "committed": null },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": 0
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 30981,
-          "name": "R. Marchizza",
-          "firstname": "Riccardo",
-          "lastname": "Marchizza",
-          "age": 22,
-          "birth": {
-            "date": "1998-03-26",
-            "place": "Roma",
-            "country": "Italy"
-          },
-          "nationality": "Italy",
-          "height": "185 cm",
-          "weight": "80 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/30981.png"
+            "id": 30981,
+            "name": "R. Marchizza",
+            "firstname": "Riccardo",
+            "lastname": "Marchizza",
+            "age": 22,
+            "birth": {
+                "date": "1998-03-26",
+                "place": "Roma",
+                "country": "Italy"
+            },
+            "nationality": "Italy",
+            "height": "185 cm",
+            "weight": "80 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/30981.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 515,
-              "name": "Spezia",
-              "logo": "https://media.api-sports.io/football/teams/515.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 0,
-              "lineups": 0,
-              "minutes": 0,
-              "number": null,
-              "position": "Defender",
-              "rating": null,
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 1 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": null, "key": null, "accuracy": null },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": null, "won": null },
-            "dribbles": { "attempts": null, "success": null, "past": null },
-            "fouls": { "drawn": null, "committed": null },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 515,
+                    "name": "Spezia",
+                    "logo": "https://media.api-sports.io/football/teams/515.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 0,
+                    "lineups": 0,
+                    "minutes": 0,
+                    "number": null,
+                    "position": "Defender",
+                    "rating": null,
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 1 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": null, "key": null, "accuracy": null },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": null, "won": null },
+                "dribbles": { "attempts": null, "success": null, "past": null },
+                "fouls": { "drawn": null, "committed": null },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 31010,
-          "name": "F. Dimarco",
-          "firstname": "Federico",
-          "lastname": "Dimarco",
-          "age": 23,
-          "birth": {
-            "date": "1997-11-10",
-            "place": "Milano",
-            "country": "Italy"
-          },
-          "nationality": "Italy",
-          "height": "175 cm",
-          "weight": "75 kg",
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/31010.png"
+            "id": 31010,
+            "name": "F. Dimarco",
+            "firstname": "Federico",
+            "lastname": "Dimarco",
+            "age": 23,
+            "birth": {
+                "date": "1997-11-10",
+                "place": "Milano",
+                "country": "Italy"
+            },
+            "nationality": "Italy",
+            "height": "175 cm",
+            "weight": "75 kg",
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/31010.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 504,
-              "name": "Verona",
-              "logo": "https://media.api-sports.io/football/teams/504.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 2,
-              "lineups": 2,
-              "minutes": 180,
-              "number": null,
-              "position": "Defender",
-              "rating": "7.000000",
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 0 },
-            "shots": { "total": 2, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": 68, "key": 7, "accuracy": 21 },
-            "tackles": { "total": 1, "blocks": null, "interceptions": 3 },
-            "duels": { "total": 16, "won": 7 },
-            "dribbles": { "attempts": 2, "success": null, "past": null },
-            "fouls": { "drawn": 5, "committed": 1 },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 504,
+                    "name": "Verona",
+                    "logo": "https://media.api-sports.io/football/teams/504.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 2,
+                    "lineups": 2,
+                    "minutes": 180,
+                    "number": null,
+                    "position": "Defender",
+                    "rating": "7.000000",
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 0 },
+                "shots": { "total": 2, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": 68, "key": 7, "accuracy": 21 },
+                "tackles": { "total": 1, "blocks": null, "interceptions": 3 },
+                "duels": { "total": 16, "won": 7 },
+                "dribbles": { "attempts": 2, "success": null, "past": null },
+                "fouls": { "drawn": 5, "committed": 1 },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      },
-      {
+    },
+    {
         "player": {
-          "id": 179502,
-          "name": "Marco Ballarini",
-          "firstname": "Marco",
-          "lastname": "Ballarini",
-          "age": 19,
-          "birth": { "date": "2001-03-28", "place": null, "country": "Italy" },
-          "nationality": "Italy",
-          "height": null,
-          "weight": null,
-          "injured": false,
-          "photo": "https://media.api-sports.io/football/players/179502.png"
+            "id": 179502,
+            "name": "Marco Ballarini",
+            "firstname": "Marco",
+            "lastname": "Ballarini",
+            "age": 19,
+            "birth": {
+                "date": "2001-03-28",
+                "place": null,
+                "country": "Italy"
+            },
+            "nationality": "Italy",
+            "height": null,
+            "weight": null,
+            "injured": false,
+            "photo": "https://media.api-sports.io/football/players/179502.png"
         },
         "statistics": [
-          {
-            "team": {
-              "id": 494,
-              "name": "Udinese",
-              "logo": "https://media.api-sports.io/football/teams/494.png"
-            },
-            "league": {
-              "id": 135,
-              "name": "Serie A",
-              "country": "Italy",
-              "logo": "https://media.api-sports.io/football/leagues/135.png",
-              "flag": "https://media.api-sports.io/flags/it.svg",
-              "season": 2020
-            },
-            "games": {
-              "appearences": 0,
-              "lineups": 0,
-              "minutes": 0,
-              "number": null,
-              "position": "Midfielder",
-              "rating": null,
-              "captain": false
-            },
-            "substitutes": { "in": 0, "out": 0, "bench": 1 },
-            "shots": { "total": null, "on": null },
-            "goals": {
-              "total": 0,
-              "conceded": 0,
-              "assists": null,
-              "saves": null
-            },
-            "passes": { "total": null, "key": null, "accuracy": null },
-            "tackles": { "total": null, "blocks": null, "interceptions": null },
-            "duels": { "total": null, "won": null },
-            "dribbles": { "attempts": null, "success": null, "past": null },
-            "fouls": { "drawn": null, "committed": null },
-            "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
-            "penalty": {
-              "won": null,
-              "commited": null,
-              "scored": 0,
-              "missed": 0,
-              "saved": null
+            {
+                "team": {
+                    "id": 494,
+                    "name": "Udinese",
+                    "logo": "https://media.api-sports.io/football/teams/494.png"
+                },
+                "league": {
+                    "id": 135,
+                    "name": "Serie A",
+                    "country": "Italy",
+                    "logo": "https://media.api-sports.io/football/leagues/135.png",
+                    "flag": "https://media.api-sports.io/flags/it.svg",
+                    "season": 2020
+                },
+                "games": {
+                    "appearences": 0,
+                    "lineups": 0,
+                    "minutes": 0,
+                    "number": null,
+                    "position": "Midfielder",
+                    "rating": null,
+                    "captain": false
+                },
+                "substitutes": { "in": 0, "out": 0, "bench": 1 },
+                "shots": { "total": null, "on": null },
+                "goals": {
+                    "total": 0,
+                    "conceded": 0,
+                    "assists": null,
+                    "saves": null
+                },
+                "passes": { "total": null, "key": null, "accuracy": null },
+                "tackles": {
+                    "total": null,
+                    "blocks": null,
+                    "interceptions": null
+                },
+                "duels": { "total": null, "won": null },
+                "dribbles": { "attempts": null, "success": null, "past": null },
+                "fouls": { "drawn": null, "committed": null },
+                "cards": { "yellow": 0, "yellowred": 0, "red": 0 },
+                "penalty": {
+                    "won": null,
+                    "commited": null,
+                    "scored": 0,
+                    "missed": 0,
+                    "saved": null
+                }
             }
-          }
         ]
-      }
-
+    }
 ]
