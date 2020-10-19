@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMatchDay } from "./actions";
 import axios from "./axios";
-import { xRapidapiHost, xRapidapiKey } from "./secrets.json";
+const { xRapidapiHost, xRapidapiKey } = require("../secrets.json");
 
 export default function Overview() {
     const dispatch = useDispatch();

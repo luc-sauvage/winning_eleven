@@ -7,7 +7,7 @@ import {
     setSearchResults,
     setLastAddedPlayer,
 } from "./actions";
-import { xRapidapiHost, xRapidapiKey } from "./secrets.json";
+const { xRapidapiHost, xRapidapiKey } = require("../secrets.json");
 
 export default function Players() {
     const dispatch = useDispatch();

@@ -7,6 +7,9 @@ const mockStats = require("./final_stats.json");
 const { compare, hash } = require("./bc");
 const csurf = require("csurf");
 const axios = require("axios");
+// const xRapidapiHost = require("./secrets.json");
+// const xRapidapiKey = require("./secrets.json");
+
 const { xRapidapiHost, xRapidapiKey } = require("./secrets.json");
 var cookieSession = require("cookie-session");
 app.use(express.urlencoded({ extended: false }));
