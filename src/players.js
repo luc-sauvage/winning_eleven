@@ -7,6 +7,7 @@ import {
     setSearchResults,
     setLastAddedPlayer,
 } from "./actions";
+import { xRapidapiHost, xRapidapiKey } from "./secrets.json";
 
 export default function Players() {
     const dispatch = useDispatch();
@@ -31,9 +32,8 @@ export default function Players() {
                     `https://v3.football.api-sports.io/players?league=135&search=${userInput}&season=2020`,
                     {
                         headers: {
-                            "x-rapidapi-host": "v3.football.api-sports.io",
-                            "x-rapidapi-key":
-                                "4e1921e65c5733449f4bfbfc9eb4616c",
+                            "x-rapidapi-host": xRapidapiHost,
+                            "x-rapidapi-key": xRapidapiKey,
                         },
                     }
                 );

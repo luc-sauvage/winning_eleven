@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMatchDay } from "./actions";
 import axios from "./axios";
+import { xRapidapiHost, xRapidapiKey } from "./secrets.json";
 
 export default function Overview() {
     const dispatch = useDispatch();
@@ -31,8 +32,8 @@ export default function Overview() {
                 "https://v3.football.api-sports.io/fixtures/rounds?league=135&season=2020&current=true",
                 {
                     headers: {
-                        "x-rapidapi-host": "v3.football.api-sports.io",
-                        "x-rapidapi-key": "4e1921e65c5733449f4bfbfc9eb4616c",
+                        "x-rapidapi-host": xRapidapiHost,
+                        "x-rapidapi-key": xRapidapiKey,
                     },
                 }
             )

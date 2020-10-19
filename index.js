@@ -7,6 +7,7 @@ const mockStats = require("./final_stats.json");
 const { compare, hash } = require("./bc");
 const csurf = require("csurf");
 const axios = require("axios");
+const { xRapidapiHost, xRapidapiKey } = require("./secrets.json");
 var cookieSession = require("cookie-session");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -101,9 +102,8 @@ app.get("/stats/:matchDay", (req, res) => {
                     `https://v3.football.api-sports.io/players?id=${playerId}&season=2020`,
                     {
                         headers: {
-                            "x-rapidapi-host": "v3.football.api-sports.io",
-                            "x-rapidapi-key":
-                                "4e1921e65c5733449f4bfbfc9eb4616c",
+                            "x-rapidapi-host": xRapidapiHost,
+                            "x-rapidapi-key": xRapidapiKey,
                         },
                     }
                 );
@@ -112,7 +112,7 @@ app.get("/stats/:matchDay", (req, res) => {
                 allPlayersInfo.push(playerInfo);
             }
             Promise.all(allPlayersInfo).then((arrOfResults) => {
-                console.log("resolved");
+                console.log("promise resolved");
                 arrOfResults.forEach(({ data }) => {
                     console.log(data.response);
                 });
