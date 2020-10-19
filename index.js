@@ -124,6 +124,120 @@ app.get("/stats/:matchDay", (req, res) => {
                 })
                 .then((results) => {
                     console.log("results: ", results);
+                    console.log("results player info", results[0].player);
+                    console.log("results player stats", results[0].statistics);
+
+                    const selectedPlayerPlayerInfo = results.player;
+                    const selectedPlayerStatistics = results.statistics[0];
+                    let {
+                        id: player_id,
+                        firstname,
+                        lastname,
+                        photo: photo_url,
+                        age,
+                        height,
+                        weight,
+                        nationality,
+                        injured,
+                    } = selectedPlayerPlayerInfo;
+                    let {
+                        position,
+                        rating,
+                        appearences,
+                        lineups,
+                        minutes,
+                    } = selectedPlayerStatistics.games;
+                    let {
+                        total: total_goals,
+                        conceded: conceded_goals,
+                        assists,
+                        saves,
+                    } = selectedPlayerStatistics.goals;
+                    let {
+                        total: total_passes,
+                        key: key_passes,
+                        accuracy: accuracy_passes,
+                    } = selectedPlayerStatistics.passes;
+                    let {
+                        total: total_tackles,
+                        blocks: total_blocks,
+                        interceptions: total_interceptions,
+                    } = selectedPlayerStatistics.tackles;
+                    let {
+                        total: total_duels,
+                        won: won_duels,
+                    } = selectedPlayerStatistics.duels;
+                    let {
+                        attempts: attempted_dribbles,
+                        success: success_dribbles,
+                    } = selectedPlayerStatistics.dribbles;
+                    let {
+                        drawn: drawn_fouls,
+                        committed: committed_fouls,
+                    } = selectedPlayerStatistics.fouls;
+                    let {
+                        yellow: yellow_cards,
+                        yellowred: yellowred_cards,
+                        red: red_cards,
+                    } = selectedPlayerStatistics.cards;
+                    let {
+                        won: won_penalties,
+                        commited: commited_penalties,
+                        scored: scored_penalties,
+                        missed: missed_penalties,
+                        saved: saved_penalties,
+                    } = selectedPlayerStatistics.penalty;
+                    let match_day = req.params.matchDay;
+                    db.updatePlayerStats(
+                        player_id,
+                        firstname,
+                        lastname,
+                        photo_url,
+                        age,
+                        height,
+                        weight,
+                        nationality,
+                        injured,
+                        position,
+                        rating,
+                        appearences,
+                        lineups,
+                        minutes,
+                        total_goals,
+                        conceded_goals,
+                        assists,
+                        saves,
+                        total_passes,
+                        key_passes,
+                        accuracy_passes,
+                        total_tackles,
+                        total_blocks,
+                        total_interceptions,
+                        total_duels,
+                        won_duels,
+                        attempted_dribbles,
+                        success_dribbles,
+                        drawn_fouls,
+                        committed_fouls,
+                        yellow_cards,
+                        yellowred_cards,
+                        red_cards,
+                        won_penalties,
+                        commited_penalties,
+                        scored_penalties,
+                        missed_penalties,
+                        saved_penalties,
+                        match_day
+                    ).then((updatePlayerResponse) => {
+                        const logicResults = logic(
+                            updatePlayerResponse.rows,
+                            req.params.matchDay
+                        );
+                        console.log(
+                            "logicResults after new fetched stats : ",
+                            logicResults
+                        );
+                    });
                 })
                 .catch((err) => {
                     console.log(err);
