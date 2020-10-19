@@ -7,7 +7,6 @@ const mockStats = require("./final_stats.json");
 const { compare, hash } = require("./bc");
 const csurf = require("csurf");
 
-
 var cookieSession = require("cookie-session");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -19,14 +18,14 @@ app.use(
     })
 );
 
-// csurf cross site security 
+// csurf cross site security
 
 app.use(csurf());
 
 app.use(function (req, res, next) {
     res.cookie("mytoken", req.csrfToken());
     next();
-} );
+});
 
 app.use(express.static("public"));
 
@@ -50,7 +49,7 @@ app.use((req, res, next) => {
         req.url != "/register"
     ) {
         res.redirect("/login");
-        console.log("not logged in, redirecting")
+        console.log("not logged in, redirecting");
     } else {
         next();
     }
@@ -75,24 +74,24 @@ app.get("/stats/:matchDay", (req, res) => {
         } else if (dbStatResponse.rows[0].match_day === req.params.matchDay) {
             // this is the query for when stats have already been fetched from API and stored in database
             // remember to call the statistics table column "match_day"
-            const logicResults = logic(dbStatResponse.rows, req.params.matchDay);
+            const logicResults = logic(
+                dbStatResponse.rows,
+                req.params.matchDay
+            );
             res.json(logicResults);
         } else {
-            
         }
 
         console.log("matchDay", req.params.matchDay);
-        
+
         console.log("logic Results: ", logicResults);
         // res.json(logicResults);
-    })
-})
-
-app.get("*", function (req, res) {
-
-    res.sendFile(__dirname + "/index.html");
+    });
 });
 
+app.get("*", function (req, res) {
+    res.sendFile(__dirname + "/index.html");
+});
 
 /// post routes
 app.post("/register", (req, res) => {
@@ -116,7 +115,6 @@ app.post("/register", (req, res) => {
                     req.body.email,
                     hashedPw
                 );
-                
             })
             .then((registrationReturn) => {
                 console.log("registrationReturn", registrationReturn);

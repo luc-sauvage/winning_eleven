@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "./axios";
 import PlayerProfile from "./player-profile";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -63,7 +63,6 @@ export default function Players() {
             {fullRoster && (
                 <div>You've reached the maximum amount of players!</div>
             )}
-
         </>
     );
 }

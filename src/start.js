@@ -13,11 +13,9 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import reducer from "./reducer.js";
 
-
 // routing
 
 import { BrowserRouter, Route, Link } from "react-router-dom";
-
 
 const store = createStore(
     reducer,
@@ -29,8 +27,8 @@ let elem;
 elem = (
     <Provider store={store}>
         <BrowserRouter>
-            <Route exact path="/registration" component={Registration}/>
-            <Route exact path="/login" component={Login}/>
+            <Route exact path="/registration" component={Registration} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Players} />
             <Route exact path="/overview" component={Overview} />
         </BrowserRouter>

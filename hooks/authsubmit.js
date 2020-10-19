@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "../src/axios";
 
 export function useAuthSubmit(url, values) {
     console.log("submit running");
