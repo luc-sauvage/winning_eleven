@@ -102,8 +102,7 @@ app.get("/stats/:matchDay", (req, res) => {
             const allPlayersInfo = [];
             for (let playerId of playerIds) {
                 const playerInfo = axios.get(
-                    `https://v3.football.api-sports.io/players?id=${playerId}&season=2020`,
-                    // attenzione che sta query tira su anche i dati delle coppe
+                    `https://v3.football.api-sports.io/players?id=${playerId}&league=135&season=2020`,
                     {
                         headers: {
                             "x-rapidapi-host": xRapidapiHost,
@@ -194,63 +193,66 @@ app.get("/stats/:matchDay", (req, res) => {
                         } = selectedPlayerStatistics.penalty;
                         let match_day = req.params.matchDay;
 
-                        db.updatePlayerStats(
-                            player_id,
-                            firstname,
-                            lastname,
-                            photo_url,
-                            age,
-                            height,
-                            weight,
-                            nationality,
-                            injured,
-                            position,
-                            rating,
-                            appearences,
-                            lineups,
-                            minutes,
-                            total_goals,
-                            conceded_goals,
-                            assists,
-                            saves,
-                            total_passes,
-                            key_passes,
-                            accuracy_passes,
-                            total_tackles,
-                            total_blocks,
-                            total_interceptions,
-                            total_duels,
-                            won_duels,
-                            attempted_dribbles,
-                            success_dribbles,
-                            drawn_fouls,
-                            committed_fouls,
-                            yellow_cards,
-                            yellowred_cards,
-                            red_cards,
-                            won_penalties,
-                            commited_penalties,
-                            scored_penalties,
-                            missed_penalties,
-                            saved_penalties,
-                            match_day
-                        );
+                        console.log("match_day: ", match_day);
+
+                        //         db.updatePlayerStats(
+                        //             player_id,
+                        //             firstname,
+                        //             lastname,
+                        //             photo_url,
+                        //             age,
+                        //             height,
+                        //             weight,
+                        //             nationality,
+                        //             injured,
+                        //             position,
+                        //             rating,
+                        //             appearences,
+                        //             lineups,
+                        //             minutes,
+                        //             total_goals,
+                        //             conceded_goals,
+                        //             assists,
+                        //             saves,
+                        //             total_passes,
+                        //             key_passes,
+                        //             accuracy_passes,
+                        //             total_tackles,
+                        //             total_blocks,
+                        //             total_interceptions,
+                        //             total_duels,
+                        //             won_duels,
+                        //             attempted_dribbles,
+                        //             success_dribbles,
+                        //             drawn_fouls,
+                        //             committed_fouls,
+                        //             yellow_cards,
+                        //             yellowred_cards,
+                        //             red_cards,
+                        //             won_penalties,
+                        //             commited_penalties,
+                        //             scored_penalties,
+                        //             missed_penalties,
+                        //             saved_penalties,
+                        //             match_day
+                        //         );
+                        //     }
+                        // })
+                        // .then(() => {
+                        //     db.fetchStats().then((dbResponseAfterUpdating) => {
+                        //         const logicResults = logic(
+                        //             dbResponseAfterUpdating.rows,
+                        //             req.params.matchDay
+                        //         );
+                        //         console.log(
+                        //             "logicResults matchDay didn't change: ",
+                        //             logicResults
+                        //         );
+                        //     });
+                        // })
+                        // .catch((err) => {
+                        //     console.log(err);
                     }
-                })
-                .then(() => {
-                    db.fetchStats().then((dbResponseAfterUpdating) => {
-                        const logicResults = logic(
-                            dbResponseAfterUpdating.rows,
-                            req.params.matchDay
-                        );
-                        console.log(
-                            "logicResults matchDay didn't change: ",
-                            logicResults
-                        );
-                    });
-                })
-                .catch((err) => {
-                    console.log(err);
                 });
         }
     });
