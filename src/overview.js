@@ -1,3 +1,4 @@
+import { WorkDocs } from "aws-sdk";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMatchDay, setWinningTeam } from "./actions";
@@ -50,10 +51,24 @@ export default function Overview() {
 
                         let rankedPlayersArray = [...serverResponse.data];
 
-                        rankedPlayersArray.sort(compareTotalpoints);
+                        // let filterInjuredPlayers = rankedPlayersArray.filter(
+                        //     (player) => {
+                        //         player.injured == true;
+                        //     }
+                        // );
 
-                        console.log("rankedPlayersArray: ", rankedPlayersArray);
-                        dispatch(setWinningTeam(rankedPlayersArray));
+                        let filterHealthyPlayers = rankedPlayersArray.filter(
+                            (player) => player.injured == false
+                        );
+
+                        console.log(
+                            "filterHealthyPlayers: ",
+                            filterHealthyPlayers
+                        );
+
+                        filterHealthyPlayers.sort(compareTotalpoints);
+
+                        dispatch(setWinningTeam(filterHealthyPlayers));
                     });
             })
             .catch((error) => console.log("error: ", error));

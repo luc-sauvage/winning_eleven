@@ -23,8 +23,8 @@ function logic(playersInfos, matchDay) {
                 weight.averageGoals +
             (statistics.assists / statistics.match_day) *
                 weight.averageAssists +
-            (statistics.success_dribbles / statistics.attempted_dribbles) *
-                weight.averageDribblings +
+            ((statistics.success_dribbles / statistics.attempted_dribbles) *
+                weight.averageDribblings || 0) +
             (statistics.yellow_cards / statistics.match_day) *
                 weight.averageYellowCards +
             (statistics.red_cards / statistics.match_day) *
@@ -46,6 +46,7 @@ function logic(playersInfos, matchDay) {
             ...playerInfo,
             totalPoints: finalPoints,
         };
+
         console.log("results after adding RANKING POINTS ", resultObj);
         return resultObj;
     });
