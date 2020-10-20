@@ -34,5 +34,12 @@ export default function reducer(state = {}, action) {
         };
     }
 
+    if (action.type === "SET_WINNING_TEAM") {
+        state = {
+            ...state,
+            playerRanking: action.playerRanking,
+        };
+    }
+
     return state;
 }

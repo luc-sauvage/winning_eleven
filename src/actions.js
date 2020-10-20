@@ -42,11 +42,22 @@ export async function setFullRoster(rosterStatus) {
     }
 }
 
-export async function setMatchDay (matchDay) {
+export async function setMatchDay(matchDay) {
     try {
         return {
             type: "SET_MATCHDAY",
             matchDay,
+        };
+    } catch (error) {
+        console.log("error", error);
+    }
+}
+
+export async function setWinningTeam(data) {
+    try {
+        return {
+            type: "SET_WINNING_TEAM",
+            playerRanking: data,
         };
     } catch (error) {
         console.log("error", error);

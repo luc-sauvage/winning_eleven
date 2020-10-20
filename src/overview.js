@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMatchDay } from "./actions";
+import { setMatchDay, setWinningTeam } from "./actions";
 import axios from "./axios";
 const { xRapidapiHost, xRapidapiKey } = require("../secrets.json");
 
 export default function Overview() {
     const dispatch = useDispatch();
     const matchDay = useSelector((state) => state.matchDay);
-    const state = useSelector((state) => state);
+    const ranking = useSelector((state) => state.playerRanking);
 
     useEffect(() => {
         // query to fetch games played by single teams... in this specific case first team in ranking - INCOMPLETE
@@ -55,11 +55,40 @@ export default function Overview() {
                 axios
                     .get(`/stats/${fetchedMatchDay}`)
                     .then((serverResponse) => {
-                        console.log(serverResponse.data);
+                        console.log(
+                            "serverResponse - stats",
+                            serverResponse.data
+                        );
+
+                        function compareTotalpoints(a, b) {
+                            return b.totalPoints - a.totalPoints;
+                        }
+
+                        let rankedPlayersArray = [...serverResponse.data];
+
+                        rankedPlayersArray.sort(compareTotalpoints);
+
+                        console.log("rankedPlayersArray: ", rankedPlayersArray);
+                        dispatch(setWinningTeam(rankedPlayersArray));
                     });
             })
             .catch((error) => console.log("error: ", error));
     }, []);
 
-    return <h1>HELLO ALE & LUCA</h1>;
+    console.log("ranking: ", ranking);
+
+    return (
+        <>
+            <h1>RESULTS OVERVIEW PAGE</h1>
+            {ranking &&
+                ranking.map((rankedPlayer, i) => {
+                    return (
+                        <div key={i}>
+                            {rankedPlayer.firstname} {rankedPlayer.lastname}{" "}
+                            {rankedPlayer.totalPoints}
+                        </div>
+                    );
+                })}
+        </>
+    );
 }

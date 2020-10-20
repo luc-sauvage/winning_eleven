@@ -14,32 +14,39 @@ function logic(playersInfos, matchDay) {
 
     function calculateFinalPoints(statistics) {
         // console.log("weight.rating", weight.rating);
-        // console.log("statistics: ", statistics);
+        console.log("statistics: ", statistics);
+
         // console.log("matchDay:", matchDay);
         const weightedResult =
-            statistics.games.rating * weight.rating +
-            (statistics.goals.total / matchDay) * weight.averageGoals +
-            (statistics.goals.assists / matchDay) * weight.averageAssists +
-            (statistics.dribbles.success / statistics.dribbles.attempts) *
+            statistics.rating * weight.rating +
+            (statistics.total_goals / statistics.match_day) *
+                weight.averageGoals +
+            (statistics.assists / statistics.match_day) *
+                weight.averageAssists +
+            (statistics.success_dribbles / statistics.attempted_dribbles) *
                 weight.averageDribblings +
-            (statistics.cards.yellow / matchDay) * weight.averageYellowCards +
-            (statistics.cards.yellow / matchDay) * weight.averageRedCards +
-            (statistics.games.lineups / matchDay) * weight.lineupLikelyhood +
-            (statistics.penalty.missed / statistics.games.appearences) *
+            (statistics.yellow_cards / statistics.match_day) *
+                weight.averageYellowCards +
+            (statistics.red_cards / statistics.match_day) *
+                weight.averageRedCards +
+            (statistics.lineups / statistics.match_day) *
+                weight.lineupLikelyhood +
+            (statistics.missed_penalties / statistics.appearences) *
                 weight.averageMissedPenalties;
 
+        console.log("weightedResult: ", weightedResult);
         return weightedResult;
     }
 
     // qui da verificare! perché non arriva più un json ma un array di oggetti ad un livello
     const resultsArr = playersInfos.map((playerInfo, i) => {
         // console.log(stat.player);
-        const finalPoints = calculateFinalPoints(playerInfo.statistics[0]);
+        const finalPoints = calculateFinalPoints(playerInfo);
         const resultObj = {
             ...playerInfo,
             totalPoints: finalPoints,
         };
-        console.log(resultObj);
+        console.log("results after adding RANKING POINTS ", resultObj);
         return resultObj;
     });
 
