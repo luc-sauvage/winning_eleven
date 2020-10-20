@@ -1,53 +1,63 @@
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 // importing hooks
 import { useAuthSubmit } from "../hooks/authsubmit";
 import { useStatefulFields } from "../hooks/handlechange";
 
-export default function Registration () {
-
+export default function Registration() {
     const [values, handleChange] = useStatefulFields();
-    const [error, handleSubmit] = useAuthSubmit("/register", values); 
+    const [error, handleSubmit] = useAuthSubmit("/register", values);
     console.log("values", values);
 
     return (
         <div>
-            {error && <div className="error">Ooops something went wrong!</div>}
+            <img src="/images/logowinning11.png"></img>
             <div className="registration-form">
-                <label htmlFor="first">Your first name</label>
+                {error && (
+                    <div className="error">Ooops something went wrong!</div>
+                )}
+                {/* <label htmlFor="first">Your first name</label> */}
                 <input
-                    className="registration-field"
+                    className="field"
                     name="first"
+                    placeHolder="Your first name"
+                    autocomplete="off"
                     onChange={handleChange}
                 ></input>
-                <label htmlFor="last">Your last name</label>
+                {/* <label htmlFor="last">Your last name</label> */}
                 <input
-                    className="registration-field"
+                    className="field"
                     name="last"
+                    placeHolder="Your last name"
+                    autocomplete="off"
                     onChange={handleChange}
                 ></input>
-                <label htmlFor="email">Your e-mail</label>
+                {/* <label htmlFor="email">Your e-mail</label> */}
                 <input
-                    className="registration-field"
+                    className="field"
                     name="email"
+                    placeHolder="Your e-mail"
+                    autocomplete="off"
                     onChange={handleChange}
                 ></input>
-                <label htmlFor="pass">Your password</label>
+                {/* <label htmlFor="pass">Your password</label> */}
                 <input
-                    className="registration-field"
+                    className="field"
                     name="pass"
+                    placeHolder="Your password"
+                    autocomplete="off"
                     onChange={handleChange}
                 ></input>
-                <button className="registration-button" onClick={handleSubmit}>
+                <button className="button" onClick={handleSubmit}>
                     Register
                 </button>
-                <p className="question">
-                    Already registered? <Link to="/login">Log in here</Link>
-                </p>
+                <div className="question-container">
+                    <p className="question">
+                        Already registered? <Link to="/login">Log in here</Link>
+                    </p>
+                </div>
             </div>
         </div>
     );
-
-
 }
