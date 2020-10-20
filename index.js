@@ -90,7 +90,10 @@ app.get("/stats/:matchDay", (req, res) => {
                 dbStatResponse.rows,
                 req.params.matchDay
             );
-            console.log("logicResults matchDay didn't change: ", logicResults);
+            console.log(
+                "logicResults matchDay same, no update needed",
+                logicResults
+            );
             /* res.json(logicResults); */
         } else {
             console.log("updating stats");
@@ -98,160 +101,418 @@ app.get("/stats/:matchDay", (req, res) => {
                 const playerId = player.player_id;
                 return playerId;
             });
-            console.log("logging playerId array: ", playerIds);
-            const allPlayersInfo = [];
-            for (let playerId of playerIds) {
-                const playerInfo = axios.get(
-                    `https://v3.football.api-sports.io/players?id=${playerId}&season=2020`,
-                    // attenzione che sta query tira su anche i dati delle coppe
-                    {
-                        headers: {
-                            "x-rapidapi-host": xRapidapiHost,
-                            "x-rapidapi-key": xRapidapiKey,
-                        },
-                    }
-                );
-                console.log("playerInfo: ", playerInfo);
+            console.log("playerIds: ", playerIds);
 
-                allPlayersInfo.push(playerInfo);
-            }
-            Promise.all(allPlayersInfo)
-                .then((arrOfResults) => {
-                    console.log("promise resolved");
-                    console.log("arrOfResults: ", arrOfResults);
-                    return arrOfResults.map((result) => {
-                        return result.data.response[0];
-                    });
-                })
-                .then((results) => {
-                    console.log("results: ", results);
-                    console.log("results player info", results[0].player);
-                    console.log("results player stats", results[0].statistics);
+            const mapLoop = async (_) => {
+                console.log("inside Map loop");
+                const promises = playerIds.map(async (player) => {
+                    console.log("player: ", player);
+                    const apiPlayerInfo = await axios.get(
+                        `https://v3.football.api-sports.io/players?id=${playerId}&league=135&season=2020`,
+                        {
+                            headers: {
+                                "x-rapidapi-host": xRapidapiHost,
+                                "x-rapidapi-key": xRapidapiKey,
+                            },
+                        }
+                    );
 
-                    //dentro ad un loop probabilmente
+                    console.log("playerInfo.data: ", apiPlayerInfo.data);
+                    console.log(
+                        "playerInfo.data.response.player: ",
+                        apiPlayerInfo.data.response[0].player
+                    );
+                    console.log(
+                        "playerInfo.data.response.statistics[0]: ",
+                        apiPlayerInfo.data.response[0].statistics[0]
+                    );
+                    const selectedPlayerPlayerInfo =
+                        apiPlayerInfo.data.response[0].player;
+                    const selectedPlayerStatistics =
+                        apiPlayerInfo.data.response[0].statistics[0];
 
-                    for (let result of results) {
-                        const selectedPlayerPlayerInfo = result.player;
-                        const selectedPlayerStatistics = result.statistics[0];
+                    let {
+                        id: player_id,
+                        firstname,
+                        lastname,
+                        photo: photo_url,
+                        age,
+                        height,
+                        weight,
+                        nationality,
+                        injured,
+                    } = selectedPlayerPlayerInfo;
+                    let {
+                        position,
+                        rating,
+                        appearences,
+                        lineups,
+                        minutes,
+                    } = selectedPlayerStatistics.games;
+                    let {
+                        total: total_goals,
+                        conceded: conceded_goals,
+                        assists,
+                        saves,
+                    } = selectedPlayerStatistics.goals;
+                    let {
+                        total: total_passes,
+                        key: key_passes,
+                        accuracy: accuracy_passes,
+                    } = selectedPlayerStatistics.passes;
+                    let {
+                        total: total_tackles,
+                        blocks: total_blocks,
+                        interceptions: total_interceptions,
+                    } = selectedPlayerStatistics.tackles;
+                    let {
+                        total: total_duels,
+                        won: won_duels,
+                    } = selectedPlayerStatistics.duels;
+                    let {
+                        attempts: attempted_dribbles,
+                        success: success_dribbles,
+                    } = selectedPlayerStatistics.dribbles;
+                    let {
+                        drawn: drawn_fouls,
+                        committed: committed_fouls,
+                    } = selectedPlayerStatistics.fouls;
+                    let {
+                        yellow: yellow_cards,
+                        yellowred: yellowred_cards,
+                        red: red_cards,
+                    } = selectedPlayerStatistics.cards;
+                    let {
+                        won: won_penalties,
+                        commited: commited_penalties,
+                        scored: scored_penalties,
+                        missed: missed_penalties,
+                        saved: saved_penalties,
+                    } = selectedPlayerStatistics.penalty;
+                    let match_day = req.params.matchDay;
 
-                        let {
-                            id: player_id,
-                            firstname,
-                            lastname,
-                            photo: photo_url,
-                            age,
-                            height,
-                            weight,
-                            nationality,
-                            injured,
-                        } = selectedPlayerPlayerInfo;
-                        let {
-                            position,
-                            rating,
-                            appearences,
-                            lineups,
-                            minutes,
-                        } = selectedPlayerStatistics.games;
-                        let {
-                            total: total_goals,
-                            conceded: conceded_goals,
-                            assists,
-                            saves,
-                        } = selectedPlayerStatistics.goals;
-                        let {
-                            total: total_passes,
-                            key: key_passes,
-                            accuracy: accuracy_passes,
-                        } = selectedPlayerStatistics.passes;
-                        let {
-                            total: total_tackles,
-                            blocks: total_blocks,
-                            interceptions: total_interceptions,
-                        } = selectedPlayerStatistics.tackles;
-                        let {
-                            total: total_duels,
-                            won: won_duels,
-                        } = selectedPlayerStatistics.duels;
-                        let {
-                            attempts: attempted_dribbles,
-                            success: success_dribbles,
-                        } = selectedPlayerStatistics.dribbles;
-                        let {
-                            drawn: drawn_fouls,
-                            committed: committed_fouls,
-                        } = selectedPlayerStatistics.fouls;
-                        let {
-                            yellow: yellow_cards,
-                            yellowred: yellowred_cards,
-                            red: red_cards,
-                        } = selectedPlayerStatistics.cards;
-                        let {
-                            won: won_penalties,
-                            commited: commited_penalties,
-                            scored: scored_penalties,
-                            missed: missed_penalties,
-                            saved: saved_penalties,
-                        } = selectedPlayerStatistics.penalty;
-                        let match_day = req.params.matchDay;
-
-                        db.updatePlayerStats(
-                            player_id,
-                            firstname,
-                            lastname,
-                            photo_url,
-                            age,
-                            height,
-                            weight,
-                            nationality,
-                            injured,
-                            position,
-                            rating,
-                            appearences,
-                            lineups,
-                            minutes,
-                            total_goals,
-                            conceded_goals,
-                            assists,
-                            saves,
-                            total_passes,
-                            key_passes,
-                            accuracy_passes,
-                            total_tackles,
-                            total_blocks,
-                            total_interceptions,
-                            total_duels,
-                            won_duels,
-                            attempted_dribbles,
-                            success_dribbles,
-                            drawn_fouls,
-                            committed_fouls,
-                            yellow_cards,
-                            yellowred_cards,
-                            red_cards,
-                            won_penalties,
-                            commited_penalties,
-                            scored_penalties,
-                            missed_penalties,
-                            saved_penalties,
-                            match_day
-                        );
-                    }
-                })
-                .then(() => {
-                    db.fetchStats().then((dbResponseAfterUpdating) => {
-                        const logicResults = logic(
-                            dbResponseAfterUpdating.rows,
-                            req.params.matchDay
-                        );
-                        console.log(
-                            "logicResults matchDay didn't change: ",
-                            logicResults
-                        );
-                    });
-                })
-                .catch((err) => {
-                    console.log(err);
+                    const addStatsToDb = await db.updatePlayerStats(
+                        player_id,
+                        firstname,
+                        lastname,
+                        photo_url,
+                        age,
+                        height,
+                        weight,
+                        nationality,
+                        injured,
+                        position,
+                        rating,
+                        appearences,
+                        lineups,
+                        minutes,
+                        total_goals,
+                        conceded_goals,
+                        assists,
+                        saves,
+                        total_passes,
+                        key_passes,
+                        accuracy_passes,
+                        total_tackles,
+                        total_blocks,
+                        total_interceptions,
+                        total_duels,
+                        won_duels,
+                        attempted_dribbles,
+                        success_dribbles,
+                        drawn_fouls,
+                        committed_fouls,
+                        yellow_cards,
+                        yellowred_cards,
+                        red_cards,
+                        won_penalties,
+                        commited_penalties,
+                        scored_penalties,
+                        missed_penalties,
+                        saved_penalties,
+                        match_day
+                    );
+                    return addStatsToDb;
                 });
+
+                const arrOfStats = await Promise.all(promises);
+                console.log("arrOfStats: ", arrOfStats);
+            };
+            // console.log("logging playerId array: ", playerIds);
+            // let dbQueries = [];
+            // for (let playerId of playerIds) {
+            //     const playerInfo = axios
+            //         .get(
+            //             `https://v3.football.api-sports.io/players?id=${playerId}&league=135&season=2020`,
+            //             {
+            //                 headers: {
+            //                     "x-rapidapi-host": xRapidapiHost,
+            //                     "x-rapidapi-key": xRapidapiKey,
+            //                 },
+            //             }
+            //         )
+            //         .then((playerInfo) => {
+            //             console.log("playerInfo.data: ", playerInfo.data);
+            //             console.log(
+            //                 "playerInfo.data.response.player: ",
+            //                 playerInfo.data.response[0].player
+            //             );
+            //             console.log(
+            //                 "playerInfo.data.response.statistics[0]: ",
+            //                 playerInfo.data.response[0].statistics[0]
+            //             );
+            //             const selectedPlayerPlayerInfo =
+            //                 playerInfo.data.response[0].player;
+            //             const selectedPlayerStatistics =
+            //                 playerInfo.data.response[0].statistics[0];
+
+            //             let {
+            //                 id: player_id,
+            //                 firstname,
+            //                 lastname,
+            //                 photo: photo_url,
+            //                 age,
+            //                 height,
+            //                 weight,
+            //                 nationality,
+            //                 injured,
+            //             } = selectedPlayerPlayerInfo;
+            //             let {
+            //                 position,
+            //                 rating,
+            //                 appearences,
+            //                 lineups,
+            //                 minutes,
+            //             } = selectedPlayerStatistics.games;
+            //             let {
+            //                 total: total_goals,
+            //                 conceded: conceded_goals,
+            //                 assists,
+            //                 saves,
+            //             } = selectedPlayerStatistics.goals;
+            //             let {
+            //                 total: total_passes,
+            //                 key: key_passes,
+            //                 accuracy: accuracy_passes,
+            //             } = selectedPlayerStatistics.passes;
+            //             let {
+            //                 total: total_tackles,
+            //                 blocks: total_blocks,
+            //                 interceptions: total_interceptions,
+            //             } = selectedPlayerStatistics.tackles;
+            //             let {
+            //                 total: total_duels,
+            //                 won: won_duels,
+            //             } = selectedPlayerStatistics.duels;
+            //             let {
+            //                 attempts: attempted_dribbles,
+            //                 success: success_dribbles,
+            //             } = selectedPlayerStatistics.dribbles;
+            //             let {
+            //                 drawn: drawn_fouls,
+            //                 committed: committed_fouls,
+            //             } = selectedPlayerStatistics.fouls;
+            //             let {
+            //                 yellow: yellow_cards,
+            //                 yellowred: yellowred_cards,
+            //                 red: red_cards,
+            //             } = selectedPlayerStatistics.cards;
+            //             let {
+            //                 won: won_penalties,
+            //                 commited: commited_penalties,
+            //                 scored: scored_penalties,
+            //                 missed: missed_penalties,
+            //                 saved: saved_penalties,
+            //             } = selectedPlayerStatistics.penalty;
+            //             let match_day = req.params.matchDay;
+
+            //             const singleDbQuery = await db.updatePlayerStats(
+            //                 player_id,
+            //                 firstname,
+            //                 lastname,
+            //                 photo_url,
+            //                 age,
+            //                 height,
+            //                 weight,
+            //                 nationality,
+            //                 injured,
+            //                 position,
+            //                 rating,
+            //                 appearences,
+            //                 lineups,
+            //                 minutes,
+            //                 total_goals,
+            //                 conceded_goals,
+            //                 assists,
+            //                 saves,
+            //                 total_passes,
+            //                 key_passes,
+            //                 accuracy_passes,
+            //                 total_tackles,
+            //                 total_blocks,
+            //                 total_interceptions,
+            //                 total_duels,
+            //                 won_duels,
+            //                 attempted_dribbles,
+            //                 success_dribbles,
+            //                 drawn_fouls,
+            //                 committed_fouls,
+            //                 yellow_cards,
+            //                 yellowred_cards,
+            //                 red_cards,
+            //                 won_penalties,
+            //                 commited_penalties,
+            //                 scored_penalties,
+            //                 missed_penalties,
+            //                 saved_penalties,
+            //                 match_day
+            //             );
+
+            //             dbQueries.push(singleDbQuery);
+            //         })
+            //         .catch((err) => {
+            //             console.log(err);
+            //         });
+            // }
+            // console.log("loop is over?");
+
+            // Promise.all(dbQueries).then(() )
+            //     .then((arrOfResults) => {
+            //         console.log("promise resolved");
+            //         console.log("arrOfResults: ", arrOfResults);
+            //         return arrOfResults.map((result) => {
+            //             return result.data.response[0];
+            //         });
+            //     })
+            //     .then((results) => {
+            //         console.log("results: ", results);
+            //         console.log("results player info", results[0].player);
+            //         console.log("results player stats", results[0].statistics);
+
+            //         //dentro ad un loop probabilmente
+
+            //         for (let result of results) {
+            //             const selectedPlayerPlayerInfo = result.player;
+            //             const selectedPlayerStatistics = result.statistics[0];
+
+            //             let {
+            //                 id: player_id,
+            //                 firstname,
+            //                 lastname,
+            //                 photo: photo_url,
+            //                 age,
+            //                 height,
+            //                 weight,
+            //                 nationality,
+            //                 injured,
+            //             } = selectedPlayerPlayerInfo;
+            //             let {
+            //                 position,
+            //                 rating,
+            //                 appearences,
+            //                 lineups,
+            //                 minutes,
+            //             } = selectedPlayerStatistics.games;
+            //             let {
+            //                 total: total_goals,
+            //                 conceded: conceded_goals,
+            //                 assists,
+            //                 saves,
+            //             } = selectedPlayerStatistics.goals;
+            //             let {
+            //                 total: total_passes,
+            //                 key: key_passes,
+            //                 accuracy: accuracy_passes,
+            //             } = selectedPlayerStatistics.passes;
+            //             let {
+            //                 total: total_tackles,
+            //                 blocks: total_blocks,
+            //                 interceptions: total_interceptions,
+            //             } = selectedPlayerStatistics.tackles;
+            //             let {
+            //                 total: total_duels,
+            //                 won: won_duels,
+            //             } = selectedPlayerStatistics.duels;
+            //             let {
+            //                 attempts: attempted_dribbles,
+            //                 success: success_dribbles,
+            //             } = selectedPlayerStatistics.dribbles;
+            //             let {
+            //                 drawn: drawn_fouls,
+            //                 committed: committed_fouls,
+            //             } = selectedPlayerStatistics.fouls;
+            //             let {
+            //                 yellow: yellow_cards,
+            //                 yellowred: yellowred_cards,
+            //                 red: red_cards,
+            //             } = selectedPlayerStatistics.cards;
+            //             let {
+            //                 won: won_penalties,
+            //                 commited: commited_penalties,
+            //                 scored: scored_penalties,
+            //                 missed: missed_penalties,
+            //                 saved: saved_penalties,
+            //             } = selectedPlayerStatistics.penalty;
+            //             let match_day = req.params.matchDay;
+
+            //             db.updatePlayerStats(
+            //                 player_id,
+            //                 firstname,
+            //                 lastname,
+            //                 photo_url,
+            //                 age,
+            //                 height,
+            //                 weight,
+            //                 nationality,
+            //                 injured,
+            //                 position,
+            //                 rating,
+            //                 appearences,
+            //                 lineups,
+            //                 minutes,
+            //                 total_goals,
+            //                 conceded_goals,
+            //                 assists,
+            //                 saves,
+            //                 total_passes,
+            //                 key_passes,
+            //                 accuracy_passes,
+            //                 total_tackles,
+            //                 total_blocks,
+            //                 total_interceptions,
+            //                 total_duels,
+            //                 won_duels,
+            //                 attempted_dribbles,
+            //                 success_dribbles,
+            //                 drawn_fouls,
+            //                 committed_fouls,
+            //                 yellow_cards,
+            //                 yellowred_cards,
+            //                 red_cards,
+            //                 won_penalties,
+            //                 commited_penalties,
+            //                 scored_penalties,
+            //                 missed_penalties,
+            //                 saved_penalties,
+            //                 match_day
+            //             );
+            //         }
+            //     })
+            //     .then(() => {
+            //         db.fetchStats().then((dbResponseAfterUpdating) => {
+            //             const logicResults = logic(
+            //                 dbResponseAfterUpdating.rows,
+            //                 req.params.matchDay
+            //             );
+            //             console.log(
+            //                 "logicResults matchDay didn't change: ",
+            //                 logicResults
+            //             );
+            //         });
+            //     })
+            // .catch((err) => {
+            //     console.log(err);
+            // });
         }
     });
 });
