@@ -146,6 +146,8 @@ app.get("/stats/:matchDay", (req, res) => {
 
                         //dentro ad un loop probabilmente
 
+                        const arrayOfUpdatePromises = [];
+
                         for (let result of results) {
                             console.log("result: ", result);
                             const selectedPlayerPlayerInfo = result.player;
@@ -212,48 +214,52 @@ app.get("/stats/:matchDay", (req, res) => {
                             } = selectedPlayerStatistics.penalty;
                             let match_day = req.params.matchDay;
 
-                            db.updatePlayerStats(
-                                player_id,
-                                firstname,
-                                lastname,
-                                photo_url,
-                                age,
-                                height,
-                                weight,
-                                nationality,
-                                injured,
-                                position,
-                                rating,
-                                appearences,
-                                lineups,
-                                minutes,
-                                total_goals,
-                                conceded_goals,
-                                assists,
-                                saves,
-                                total_passes,
-                                key_passes,
-                                accuracy_passes,
-                                total_tackles,
-                                total_blocks,
-                                total_interceptions,
-                                total_duels,
-                                won_duels,
-                                attempted_dribbles,
-                                success_dribbles,
-                                drawn_fouls,
-                                committed_fouls,
-                                yellow_cards,
-                                yellowred_cards,
-                                red_cards,
-                                won_penalties,
-                                commited_penalties,
-                                scored_penalties,
-                                missed_penalties,
-                                saved_penalties,
-                                match_day
+                            arrayOfUpdatePromises.push(
+                                db.updatePlayerStats(
+                                    player_id,
+                                    firstname,
+                                    lastname,
+                                    photo_url,
+                                    age,
+                                    height,
+                                    weight,
+                                    nationality,
+                                    injured,
+                                    position,
+                                    rating,
+                                    appearences,
+                                    lineups,
+                                    minutes,
+                                    total_goals,
+                                    conceded_goals,
+                                    assists,
+                                    saves,
+                                    total_passes,
+                                    key_passes,
+                                    accuracy_passes,
+                                    total_tackles,
+                                    total_blocks,
+                                    total_interceptions,
+                                    total_duels,
+                                    won_duels,
+                                    attempted_dribbles,
+                                    success_dribbles,
+                                    drawn_fouls,
+                                    committed_fouls,
+                                    yellow_cards,
+                                    yellowred_cards,
+                                    red_cards,
+                                    won_penalties,
+                                    commited_penalties,
+                                    scored_penalties,
+                                    missed_penalties,
+                                    saved_penalties,
+                                    match_day
+                                )
                             );
                         }
+
+                        return Promise.all(arrayOfUpdatePromises);
                     })
                     .then(() => {
                         db.fetchStats().then((dbResponseAfterUpdating) => {

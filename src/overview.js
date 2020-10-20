@@ -10,22 +10,6 @@ export default function Overview() {
     const ranking = useSelector((state) => state.playerRanking);
 
     useEffect(() => {
-        // query to fetch games played by single teams... in this specific case first team in ranking - INCOMPLETE
-        // axios.get(
-        //     `https://v3.football.api-sports.io/standings?league=135&season=2020`,
-        //     {
-        //         headers: {
-        //             "x-rapidapi-host": "v3.football.api-sports.io",
-        //             "x-rapidapi-key":
-        //                 "4e1921e65c5733449f4bfbfc9eb4616c",
-        //         },
-        //     }).then((matchDayResponse) => {
-        //         console.log("response for matchDay", matchDayResponse);
-        //         console.log("matchDay with standings query", matchDayResponse.response[0].league.standings[0]);
-        //         const standings = matchDayResponse.response[0].league.standings[0];
-        //         const matchDay = standings[0].all.played;
-        //     }).catch((error) => console.log("error: ", error));
-
         // query to fetch the current round in the league - COMPLETE
         axios
             .get(
