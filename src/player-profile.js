@@ -7,6 +7,7 @@ import {
     setPlayersProfiles,
     setFullRoster,
     setSearchResults,
+    addPlayerCurrentRoster,
 } from "./actions";
 
 export default function PlayerProfile() {
@@ -134,6 +135,9 @@ export default function PlayerProfile() {
                             console.log("response data:", response.data[0]);
                             if (response.data) {
                                 dispatch(setLastAddedPlayer(response.data[0]));
+                                dispatch(
+                                    addPlayerCurrentRoster(response.data[0])
+                                );
                                 dispatch(setPlayersProfiles([]));
                                 dispatch(setSearchResults(false));
                             }

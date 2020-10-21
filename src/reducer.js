@@ -48,5 +48,12 @@ export default function reducer(state = {}, action) {
         };
     }
 
+    if (action.type === "SET_PLAYER_ROSTER") {
+        state = {
+            ...state,
+            currentRoster: [...state.currentRoster, action.lastPlayerData],
+        };
+    }
+
     return state;
 }

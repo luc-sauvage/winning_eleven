@@ -74,3 +74,15 @@ export async function setCurrentRoster(rosterData) {
         console.log("error", error);
     }
 }
+
+export async function addPlayerCurrentRoster(playerData) {
+    console.log("playerData: ", playerData);
+    try {
+        return {
+            type: "SET_PLAYER_ROSTER",
+            lastPlayerData: playerData,
+        };
+    } catch (error) {
+        console.log("error", error);
+    }
+}

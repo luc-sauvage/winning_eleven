@@ -24,7 +24,7 @@ export default function CurrentRoster() {
             {currentRoster &&
                 currentRoster.map((rosterPlayer, i) => {
                     return (
-                        <div className="roster-player-container">
+                        <div key={i} className="roster-player-container">
                             <img
                                 className="current-roster-img"
                                 src={rosterPlayer.photo_url}
