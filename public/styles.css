@@ -196,6 +196,7 @@ a:hover {
     position: relative;
     top: 0.5px;
     transition: all 0.1s ease-in-out;
+    /* background-color: rgb(199, 244, 255); */
 }
 
 .player-profile-pic {
@@ -231,12 +232,12 @@ a:hover {
 }
 
 .current-roster-container {
-    position: absolute;
+    position: fixed;
     top: 50px;
     right: 80px;
-    max-width: 25%;
-    height: 90vh;
+    width: 25%;
     height: fit-content;
+    max-height: 90vh;
     background-color: white;
     box-shadow: -3px -3px 10px rgb(113, 201, 255),
         5px 5px 20px rgb(18, 164, 255);
@@ -244,7 +245,8 @@ a:hover {
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
-    overflow: auto;
+    overflow-y: auto;
+    padding-bottom: 10px;
 }
 
 .roster-player-container {
