@@ -63,3 +63,14 @@ export async function setWinningTeam(data) {
         console.log("error", error);
     }
 }
+
+export async function setCurrentRoster(rosterData) {
+    try {
+        return {
+            type: "SET_CURRENT_ROSTER",
+            currentRoster: rosterData,
+        };
+    } catch (error) {
+        console.log("error", error);
+    }
+}

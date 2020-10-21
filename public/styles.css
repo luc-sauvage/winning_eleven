@@ -229,3 +229,47 @@ a:hover {
     background-color: white;
     color: rgb(0, 156, 253);
 }
+
+.current-roster-container {
+    position: absolute;
+    top: 50px;
+    right: 80px;
+    max-width: 25%;
+    height: 90vh;
+    height: fit-content;
+    background-color: white;
+    box-shadow: -3px -3px 10px rgb(113, 201, 255),
+        5px 5px 20px rgb(18, 164, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.roster-player-container {
+    width: 90%;
+    height: 100px;
+    background-color: lightskyblue;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.roster-player-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.current-roster-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid rgb(0, 156, 253);
+    margin-right: 10px;
+}

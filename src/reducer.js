@@ -41,5 +41,12 @@ export default function reducer(state = {}, action) {
         };
     }
 
+    if (action.type === "SET_CURRENT_ROSTER") {
+        state = {
+            ...state,
+            currentRoster: action.currentRoster,
+        };
+    }
+
     return state;
 }

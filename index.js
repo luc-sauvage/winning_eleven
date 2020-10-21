@@ -288,6 +288,13 @@ app.get("/stats/:matchDay", (req, res) => {
         });
 });
 
+app.get("/current-roster", (req, res) => {
+    db.fetchStats().then((returnedRosterInfo) => {
+        /* console.log("returnedRosterInfo.rows: ", returnedRosterInfo.rows); */
+        res.json(returnedRosterInfo.rows);
+    });
+});
+
 app.get("*", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import PlayerProfile from "./player-profile";
+import CurrentRoster from "./current-roster";
 import { useDispatch, useSelector } from "react-redux";
 import {
     setPlayersProfiles,
@@ -83,6 +84,7 @@ export default function Players() {
                     </div>
                 )}
             </div>
+            <CurrentRoster />
         </div>
     );
 }
