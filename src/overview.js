@@ -108,6 +108,7 @@ export default function Overview() {
                         );
                     })} */}
                 <div className="role-filtered-results">
+                    <h3 className="role-title-section">Goalkeepers</h3>
                     {filterGoalkeepers &&
                         filterGoalkeepers.map((rankedGoalkeeper, i) => {
                             return (
@@ -128,6 +129,7 @@ export default function Overview() {
                         })}
                 </div>
                 <div className="role-filtered-results">
+                    <h3 className="role-title-section">Defender</h3>
                     {filterDefenders &&
                         filterDefenders.map((rankedDefender, i) => {
                             return (
@@ -148,6 +150,7 @@ export default function Overview() {
                         })}
                 </div>
                 <div className="role-filtered-results">
+                    <h3 className="role-title-section">Midfielder</h3>
                     {filterMidfielders &&
                         filterMidfielders.map((rankedMidfielder, i) => {
                             return (
@@ -168,6 +171,7 @@ export default function Overview() {
                         })}
                 </div>
                 <div className="role-filtered-results">
+                    <h3 className="role-title-section">Attacker</h3>
                     {filterAttackers &&
                         filterAttackers.map((rankedAttacker, i) => {
                             return (
@@ -188,6 +192,7 @@ export default function Overview() {
                         })}
                 </div>
                 <div className="role-filtered-results">
+                    <h3 className="role-title-section">Injured players</h3>
                     {(filterInjuredPlayers &&
                         filterInjuredPlayers.length > 0 &&
                         filterInjuredPlayers.map((rankedInjured, i) => {

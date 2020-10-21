@@ -233,11 +233,11 @@ a:hover {
 
 .current-roster-container {
     position: fixed;
-    top: 50px;
+    top: 70px;
     right: 80px;
     width: 25%;
     height: fit-content;
-    max-height: 90vh;
+    max-height: 85vh;
     background-color: white;
     box-shadow: -3px -3px 10px rgb(113, 201, 255),
         5px 5px 20px rgb(18, 164, 255);
@@ -276,6 +276,11 @@ a:hover {
     margin-right: 10px;
 }
 
+.roster-info {
+    margin-top: 10px;
+    color: red;
+}
+
 .big-results-container {
     display: flex;
     align-items: flex-start;
@@ -311,6 +316,15 @@ a:hover {
     margin-top: 10px;
 }
 
+.single-role-result:hover {
+    /* box-shadow: 3px 3px 1px rgb(94, 193, 255), -1px -1px 1px rgb(6, 159, 253); */
+    position: relative;
+    top: 0.5px;
+    transition: all 0.1s ease-in-out;
+    background-color: rgb(18, 164, 255);
+    /* background-color: rgb(199, 244, 255); */
+}
+
 .single-role-text-results {
     display: flex;
     flex-direction: column;
@@ -319,4 +333,8 @@ a:hover {
 .no-injuries {
     color: #43cf5f;
     padding: 20px 10px;
+}
+
+.role-title-section {
+    margin-top: 10px;
 }

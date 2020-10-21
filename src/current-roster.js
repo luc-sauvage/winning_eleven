@@ -21,7 +21,8 @@ export default function CurrentRoster() {
 
     return (
         <div className="current-roster-container">
-            {currentRoster &&
+            {(currentRoster &&
+                currentRoster.length > 0 &&
                 currentRoster.map((rosterPlayer, i) => {
                     return (
                         <div key={i} className="roster-player-container">
@@ -38,7 +39,9 @@ export default function CurrentRoster() {
                             </div>
                         </div>
                     );
-                })}
+                })) || (
+                <p className="roster-info">Your roster is currently empty</p>
+            )}
         </div>
     );
 }
