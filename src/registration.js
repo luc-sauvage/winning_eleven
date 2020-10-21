@@ -11,7 +11,7 @@ export default function Registration() {
     console.log("values", values);
 
     return (
-        <div>
+        <div className="login-registration-page">
             <img src="/images/logowinning11.png"></img>
             <div className="registration-form">
                 {error && (

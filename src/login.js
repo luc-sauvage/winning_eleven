@@ -9,7 +9,7 @@ export default function Login() {
     const [error, handleSubmit] = useAuthSubmit("/login", values);
 
     return (
-        <>
+        <div className="login-registration-page">
             {" "}
             <img src="/images/logowinning11.png"></img>
             <div className="registration-container">
@@ -48,6 +48,6 @@ export default function Login() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

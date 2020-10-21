@@ -49,20 +49,40 @@ export default function Players() {
     };
 
     return (
-        <>
-            <input name="player" onChange={handleChange}></input>
-            <button onClick={() => getPlayers(userInput)}>Fetch API</button>
-            {searchResults && <PlayerProfile />}
-            {lastAddedPlayer && (
-                <div>
-                    {" "}
-                    {lastAddedPlayer.firstname} {lastAddedPlayer.lastname} was
-                    successfully added to the roster!{" "}
-                </div>
-            )}
-            {fullRoster && (
-                <div>You've reached the maximum amount of players!</div>
-            )}
-        </>
+        <div className="search-page">
+            <div className="navbar">
+                <img
+                    className="navbar-logo"
+                    src="/images/logowinning11_navbar.png"
+                ></img>
+                <input
+                    className="search-field"
+                    name="player"
+                    onChange={handleChange}
+                    placeholder="Insert player name..."
+                ></input>
+                <button
+                    className="button"
+                    onClick={() => getPlayers(userInput)}
+                >
+                    Search player
+                </button>
+            </div>
+            <div className="search-results-area">
+                {searchResults && <PlayerProfile />}
+                {lastAddedPlayer && (
+                    <div className="information-container">
+                        <img src="/images/green-flag.png"></img>{" "}
+                        {lastAddedPlayer.firstname} {lastAddedPlayer.lastname}{" "}
+                        was successfully added to the roster!{" "}
+                    </div>
+                )}
+                {fullRoster && (
+                    <div className="information-container">
+                        You've reached the maximum amount of players!
+                    </div>
+                )}
+            </div>
+        </div>
     );
 }

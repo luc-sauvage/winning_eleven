@@ -157,14 +157,24 @@ export default function PlayerProfile() {
                     players.map((player, i) => {
                         return (
                             <div key={i} className="single-result-container">
-                                <img src={player.player.photo}></img>
-                                <p>First name: {player.player.firstname}</p>
-                                <p>Last name: {player.player.lastname}</p>
-                                <p>Age: {player.player.age}</p>
-                                <p>Height: {player.player.height}</p>
-                                <p>Weight: {player.player.weight}</p>
-                                <p>Nationality: {player.player.nationality}</p>
-                                <button onClick={() => addPlayer(player)}>
+                                <img
+                                    className="player-profile-pic"
+                                    src={player.player.photo}
+                                ></img>
+                                <div className="player-info-text-container">
+                                    <p>First name: {player.player.firstname}</p>
+                                    <p>Last name: {player.player.lastname}</p>
+                                    <p>Age: {player.player.age}</p>
+                                    <p>Height: {player.player.height}</p>
+                                    <p>Weight: {player.player.weight}</p>
+                                    <p>
+                                        Nationality: {player.player.nationality}
+                                    </p>
+                                </div>
+                                <button
+                                    className="select-player-button"
+                                    onClick={() => addPlayer(player)}
+                                >
                                     Insert in roster
                                 </button>
                             </div>
