@@ -16,6 +16,18 @@ function logic(playersInfos, matchDay) {
         // console.log("weight.rating", weight.rating);
         console.log("statistics: ", statistics);
 
+        // if (statistics.position === "Goalkeeper") {
+        // }
+
+        // if (statistics.position === "Defender") {
+        // }
+
+        // if (statistics.position === "Defender") {
+        // }
+
+        // if (statistics.position === "Attacker") {
+        // }
+
         // console.log("matchDay:", matchDay);
         const weightedResult =
             statistics.rating * weight.rating +
