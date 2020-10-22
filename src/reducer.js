@@ -55,5 +55,18 @@ export default function reducer(state = {}, action) {
         };
     }
 
+    if (action.type === "SET_POPUP_STATE") {
+        state = {
+            ...state,
+            popupState: action.popupState,
+        };
+    }
+    if (action.type === "SET_POPUP_STATS") {
+        state = {
+            ...state,
+            popupStats: action.popupStats,
+        };
+    }
+
     return state;
 }

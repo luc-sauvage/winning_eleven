@@ -1,14 +1,21 @@
 import { WorkDocs } from "aws-sdk";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMatchDay, setWinningTeam } from "./actions";
+import {
+    setMatchDay,
+    setWinningTeam,
+    setPopupState,
+    setPopupStats,
+} from "./actions";
 import axios from "./axios";
+import PlayerStats from "./player-stats-popup";
 const { xRapidapiHost, xRapidapiKey } = require("../secrets.json");
 
 export default function Overview() {
     const dispatch = useDispatch();
     const matchDay = useSelector((state) => state.matchDay);
     const ranking = useSelector((state) => state.playerRanking);
+    const popup = useSelector((state) => state.popupState);
 
     const filterGoalkeepers =
         ranking &&
@@ -93,12 +100,18 @@ export default function Overview() {
             .catch((error) => console.log("error: ", error));
     }, []);
 
-    console.log("ranking: ", ranking);
+    /* console.log("ranking: ", ranking);
     console.log("filterGoalkeepers: ", filterGoalkeepers);
     console.log("filterDefenders: ", filterDefenders);
     console.log("filterMidfielders: ", filterMidfielders);
     console.log("filterAttackers: ", filterAttackers);
-    console.log("filterInjuredPlayers: ", filterInjuredPlayers);
+    console.log("filterInjuredPlayers: ", filterInjuredPlayers); */
+
+    function openPopup(playerInfo) {
+        console.log("playerInfo: ", playerInfo);
+        dispatch(setPopupState(true));
+        dispatch(setPopupStats(playerInfo));
+    }
 
     return (
         <>
@@ -124,7 +137,11 @@ export default function Overview() {
                     {filterGoalkeepers &&
                         filterGoalkeepers.map((rankedGoalkeeper, i) => {
                             return (
-                                <div className="single-role-result" key={i}>
+                                <div
+                                    className="single-role-result"
+                                    key={i}
+                                    onClick={() => openPopup(rankedGoalkeeper)}
+                                >
                                     <img
                                         className="current-roster-img"
                                         src={rankedGoalkeeper.photo_url}
@@ -153,7 +170,11 @@ export default function Overview() {
                     {filterDefenders &&
                         filterDefenders.map((rankedDefender, i) => {
                             return (
-                                <div className="single-role-result" key={i}>
+                                <div
+                                    className="single-role-result"
+                                    key={i}
+                                    onClick={() => openPopup(rankedDefender)}
+                                >
                                     <img
                                         className="current-roster-img"
                                         src={rankedDefender.photo_url}
@@ -180,7 +201,11 @@ export default function Overview() {
                     {filterMidfielders &&
                         filterMidfielders.map((rankedMidfielder, i) => {
                             return (
-                                <div className="single-role-result" key={i}>
+                                <div
+                                    className="single-role-result"
+                                    key={i}
+                                    onClick={() => openPopup(rankedMidfielder)}
+                                >
                                     <img
                                         className="current-roster-img"
                                         src={rankedMidfielder.photo_url}
@@ -209,7 +234,11 @@ export default function Overview() {
                     {filterAttackers &&
                         filterAttackers.map((rankedAttacker, i) => {
                             return (
-                                <div className="single-role-result" key={i}>
+                                <div
+                                    className="single-role-result"
+                                    key={i}
+                                    onClick={() => openPopup(rankedAttacker)}
+                                >
                                     <img
                                         className="current-roster-img"
                                         src={rankedAttacker.photo_url}
@@ -237,7 +266,11 @@ export default function Overview() {
                         filterInjuredPlayers.length > 0 &&
                         filterInjuredPlayers.map((rankedInjured, i) => {
                             return (
-                                <div className="single-role-result" key={i}>
+                                <div
+                                    className="single-role-result"
+                                    key={i}
+                                    onClick={() => openPopup(rankedInjured)}
+                                >
                                     <img
                                         className="current-roster-img"
                                         src={rankedInjured.photo_url}
@@ -265,6 +298,12 @@ export default function Overview() {
                     )}
                 </div>
             </div>
+            {popup && (
+                <div>
+                    <div className="popup-layer"></div>
+                    <PlayerStats />
+                </div>
+            )}
         </>
     );
 }

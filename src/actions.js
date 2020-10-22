@@ -86,3 +86,25 @@ export async function addPlayerCurrentRoster(playerData) {
         console.log("error", error);
     }
 }
+
+export async function setPopupState(state) {
+    try {
+        return {
+            type: "SET_POPUP_STATE",
+            popupState: state,
+        };
+    } catch (error) {
+        console.log("error", error);
+    }
+}
+
+export async function setPopupStats(stats) {
+    try {
+        return {
+            type: "SET_POPUP_STATS",
+            popupStats: stats,
+        };
+    } catch (error) {
+        console.log("error", error);
+    }
+}
