@@ -79,7 +79,10 @@ app.get("/stats/:matchDay", (req, res) => {
                 "dbStatResponse.rows[0].match_day: ",
                 dbStatResponse.rows[0].match_day
             );
-            if (dbStatResponse.rows[0].match_day === null) {
+            if (
+                dbStatResponse.rows[dbStatResponse.rows.length - 1]
+                    .match_day === null
+            ) {
                 console.log("no matchday yet! needs to be added");
                 db.setMatchDay(req.params.matchDay).then(
                     (dbStatSecondResponse) => {
