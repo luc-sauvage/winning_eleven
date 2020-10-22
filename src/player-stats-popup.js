@@ -29,7 +29,11 @@ export default function PlayerStats() {
                 if (deleteConfirmation) {
                     console.log("PLAYER ID", playerId);
                     const arrayWithoutDeletedPlayer = arrayWithDeletedPlayer.filter(
-                        (player) => player.id !== playerId
+                        (player) => player.id !== playerId.id
+                    );
+                    console.log(
+                        "arrayWithoutDeletedPlayer: ",
+                        arrayWithoutDeletedPlayer
                     );
                     dispatch(setWinningTeam(arrayWithoutDeletedPlayer));
                     dispatch(setPopupState(false));

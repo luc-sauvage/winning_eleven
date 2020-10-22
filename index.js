@@ -83,7 +83,9 @@ app.get("/stats/:matchDay", (req, res) => {
                 dbStatResponse.rows[dbStatResponse.rows.length - 1]
                     .match_day === null
             ) {
-                console.log("no matchday yet! needs to be added UAAAAAAARGHHH");
+                console.log(
+                    "no matchday for all players yet! needs to be added"
+                );
                 db.setMatchDay(req.params.matchDay).then(
                     (dbStatSecondResponse) => {
                         const logicResults = logic(
