@@ -14,76 +14,204 @@ export default function PlayerStats() {
         <>
             {player && (
                 <div className="popup">
-                    <div className="popup-left-column">
-                        <img className="popup-pic" src={player.photo_url}></img>
-                        <div className="popup-player-info">
-                            <p>
-                                {player.firstname} {player.lastname}
-                            </p>
-                            <p>{player.age}</p>
-                            <p>{player.height}</p>
-                            <p>{player.weight}</p>
-                            <p>{player.nationality}</p>
-                            <p>{player.position}</p>
-                            <p>{player.injured}</p>
-                            <p>{player.totalPoints}</p>
+                    <div className="popup-info-container">
+                        <div className="popup-left-column">
+                            <img
+                                className="popup-pic"
+                                src={player.photo_url}
+                            ></img>
+                            <div className="popup-player-info">
+                                <p>
+                                    <span style={{ color: "black" }}>
+                                        Name:{" "}
+                                    </span>
+                                    {player.firstname} {player.lastname}
+                                </p>
+                                <p>
+                                    <span style={{ color: "black" }}>
+                                        Age:{" "}
+                                    </span>
+                                    {player.age}
+                                </p>
+                                <p>
+                                    <span style={{ color: "black" }}>
+                                        Height:{" "}
+                                    </span>
+                                    {player.height}
+                                </p>
+                                <p>
+                                    <span style={{ color: "black" }}>
+                                        Weight:{" "}
+                                    </span>
+                                    {player.weight}
+                                </p>
+                                <p>
+                                    <span style={{ color: "black" }}>
+                                        Nationality:{" "}
+                                    </span>
+                                    {player.nationality}
+                                </p>
+                                <p>
+                                    <span style={{ color: "black" }}>
+                                        Position:{" "}
+                                    </span>
+                                    {player.position}
+                                </p>
+                                {player.injured && (
+                                    <p style={{ color: "red" }}>
+                                        Player is injured
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+                        <div className="popup-right-column">
+                            {player.position === "Goalkeeper" ? (
+                                <div>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Appearences:{" "}
+                                        </span>
+                                        {player.appearences || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Minutes played:{" "}
+                                        </span>
+                                        {player.minutes || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Conceded goals:{" "}
+                                        </span>
+                                        {player.conceded_goals || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Committed penalties:{" "}
+                                        </span>
+                                        {player.commited_penalties || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Saved penalties:{" "}
+                                        </span>
+                                        {player.saved_penalties || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Committed fouls:{" "}
+                                        </span>
+                                        {player.committed_fouls || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Saves:{" "}
+                                        </span>
+                                        {player.saves || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Yellow cards:{" "}
+                                        </span>
+                                        {player.yellow_cards || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Red cards:{" "}
+                                        </span>
+                                        {player.red_cards || 0}
+                                    </p>
+                                </div>
+                            ) : (
+                                <div>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Appearences:{" "}
+                                        </span>
+                                        {player.appearences || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Minutes played:{" "}
+                                        </span>
+                                        {player.minutes || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Goals:{" "}
+                                        </span>
+                                        {player.total_goals || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Assists:{" "}
+                                        </span>
+                                        {player.assists || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Total passes:{" "}
+                                        </span>
+                                        {player.total_passes || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Committed fouls:{" "}
+                                        </span>
+                                        {player.committed_fouls || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Drawn fouls:{" "}
+                                        </span>
+                                        {player.drawn_fouls || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Successful dribbles:{" "}
+                                        </span>
+                                        {player.success_dribbles || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Won duels:{" "}
+                                        </span>
+                                        {player.won_duels || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Scored penalties:{" "}
+                                        </span>
+                                        {player.scored_penalties || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Missed penalties:{" "}
+                                        </span>
+                                        {player.missed_penalties || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Yellow cards:{" "}
+                                        </span>
+                                        {player.yellow_cards || 0}
+                                    </p>
+                                    <p>
+                                        <span style={{ color: "black" }}>
+                                            Red cards:{" "}
+                                        </span>
+                                        {player.red_cards || 0}
+                                    </p>
+                                </div>
+                            )}
                         </div>
                     </div>
-                    <div className="popup-right-column">
-                        {player.position === "Goalkeeper" ? (
-                            <div>
-                                <p>Appearences: {player.appearences || 0}</p>
-                                <p>Minutes played: {player.minutes || 0}</p>
-                                <p>
-                                    Conceded goals: {player.conceded_goals || 0}
-                                </p>
-                                <p>
-                                    Committed penalties:{" "}
-                                    {player.commited_penalties || 0}
-                                </p>
-                                <p>
-                                    Saved penalties:{" "}
-                                    {player.saved_penalties || 0}
-                                </p>
-                                <p>
-                                    Committed fouls:{" "}
-                                    {player.committed_fouls || 0}
-                                </p>
-                                <p>Saves: {player.saves || 0}</p>
-                                <p>Yellow cards: {player.yellow_cards || 0}</p>
-                                <p>Red cards: {player.red_cards || 0}</p>
-                            </div>
-                        ) : (
-                            <div>
-                                <p>Appearences: {player.appearences || 0}</p>
-                                <p>Minutes played: {player.minutes || 0}</p>
-                                <p>Goals: {player.total_goals || 0}</p>
-                                <p>Assists: {player.assists || 0}</p>
-                                <p>Total passes {player.total_passes || 0}</p>
-                                <p>
-                                    Committed fouls:{" "}
-                                    {player.committed_fouls || 0}
-                                </p>
-                                <p>Drawn fouls: {player.drawn_fouls || 0}</p>
-                                <p>
-                                    Successful dribbles:{" "}
-                                    {player.success_dribbles || 0}
-                                </p>
-                                <p>Won duels: {player.won_duels || 0}</p>
-                                <p>
-                                    Scored penalties:{" "}
-                                    {player.scored_penalties || 0}
-                                </p>
-                                <p>
-                                    Missed penalties:{" "}
-                                    {player.missed_penalties || 0}
-                                </p>
-                                <p>Yellow cards: {player.yellow_cards || 0}</p>
-                                <p>Red cards: {player.red_cards || 0}</p>
-                            </div>
-                        )}
-                    </div>
-                    <button onClick={closePopup}>Close player stats</button>
+                    <p style={{ color: "#3ab54a" }}>
+                        Winning Eleven special score: {player.totalPoints}
+                    </p>
+                    <button className="button" onClick={closePopup}>
+                        Close player stats
+                    </button>
                 </div>
             )}
         </>

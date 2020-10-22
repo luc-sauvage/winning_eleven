@@ -114,7 +114,10 @@ function logic(playersInfos, matchDay) {
     // qui da verificare! perché non arriva più un json ma un array di oggetti ad un livello
     const resultsArr = playersInfos.map((playerInfo, i) => {
         // console.log(stat.player);
-        const finalPoints = calculateFinalPoints(playerInfo);
+        const preFinalPoints = calculateFinalPoints(playerInfo);
+
+        let finalPoints = +preFinalPoints.toFixed(3);
+        console.log("FINAL POINTS", finalPoints);
         const resultObj = {
             ...playerInfo,
             totalPoints: finalPoints,
