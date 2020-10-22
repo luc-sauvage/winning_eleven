@@ -424,3 +424,17 @@ a:hover {
     color: rgb(0, 156, 253);
     padding: 10px 0;
 }
+
+.delete-button {
+    height: 35px;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: red;
+    color: white;
+    border-style: none;
+    font-family: "Nunito", sans-serif;
+    outline: none;
+}
+.delete-button:hover {
+    background-color: rgb(121, 0, 0);
+}

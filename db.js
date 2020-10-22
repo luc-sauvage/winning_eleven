@@ -325,3 +325,11 @@ module.exports.updatePlayerStats = (
     ];
     return db.query(q, params);
 };
+
+module.exports.deletePlayer = (playerId) => {
+    const q = `DELETE FROM roster
+    WHERE id = $1
+    RETURNING *`;
+    const params = [playerId];
+    return db.query(q, params);
+};

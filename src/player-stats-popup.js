@@ -1,13 +1,42 @@
+import axios from "./axios";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPopupState } from "./actions";
+import { setPopupState, setWinningTeam } from "./actions";
 
 export default function PlayerStats() {
     const dispatch = useDispatch();
     const player = useSelector((state) => state.popupStats);
+    const arrayWithDeletedPlayer = useSelector((state) => state.playerRanking);
 
     function closePopup() {
         dispatch(setPopupState(false));
+    }
+
+    /* function findDeletedPlayer(array, key, value) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i][key] === value) {
+                array.splice(array.indexOf(i));
+            }
+        }
+        return null;
+    } */
+
+    function deletePlayer(playerId) {
+        axios
+            .post("/delete", playerId)
+            .then((deleteConfirmation) => {
+                /* console.log("deleteConfirmation: ", deleteConfirmation); */
+                if (deleteConfirmation) {
+                    const arrayWithoutDeletedPlayer = arrayWithDeletedPlayer.filter(
+                        (player) => player.id === playerId
+                    );
+                    dispatch(setWinningTeam(arrayWithoutDeletedPlayer));
+                    dispatch(setPopupState(false));
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     return (
@@ -211,6 +240,12 @@ export default function PlayerStats() {
                     </p>
                     <button className="button" onClick={closePopup}>
                         Close player stats
+                    </button>
+                    <button
+                        className="delete-button"
+                        onClick={() => deletePlayer(player)}
+                    >
+                        Delete player
                     </button>
                 </div>
             )}

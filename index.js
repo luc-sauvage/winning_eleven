@@ -425,6 +425,11 @@ app.post("/addplayer", async (req, res) => {
     }
 });
 
+app.post("/delete", async (req, res) => {
+    let deletedPlayer = await db.deletePlayer(req.body.id);
+    res.json(deletedPlayer);
+});
+
 app.listen(8080, function () {
     console.log("winning 11 server running");
 });
