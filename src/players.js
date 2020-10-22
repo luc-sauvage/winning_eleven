@@ -9,6 +9,7 @@ import {
     setLastAddedPlayer,
 } from "./actions";
 const { xRapidapiHost, xRapidapiKey } = require("../secrets.json");
+import { Link } from "react-router-dom";
 
 export default function Players() {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export default function Players() {
     const searchResults = useSelector((state) => state.searchResults);
     const lastAddedPlayer = useSelector((state) => state.lastPlayer);
     const fullRoster = useSelector((state) => state.rosterStatus);
-
+    const currentRoster = useSelector((state) => state.currentRoster);
     // const [players, setPlayers] = useState([]);
 
     const handleChange = (e) => {
@@ -80,7 +81,33 @@ export default function Players() {
                 )}
                 {fullRoster && (
                     <div className="information-container">
-                        You've reached the maximum amount of players!
+                        <img src="/images/red-cross.png"></img>
+                        <p>
+                            You cannot add another players, you have reached the
+                            maximum amount!
+                        </p>
+                        <Link to="/overview">
+                            <button
+                                type="button"
+                                className="full-roster-button"
+                            >
+                                Go to overview!
+                            </button>
+                        </Link>
+                    </div>
+                )}
+                {!fullRoster && currentRoster && currentRoster.length === 25 && (
+                    <div className="information-container">
+                        <img src="/images/green-flag.png"></img>{" "}
+                        <p>Your roster now is complete!</p>
+                        <Link to="/overview">
+                            <button
+                                type="button"
+                                className="full-roster-button"
+                            >
+                                Go to overview!
+                            </button>
+                        </Link>
                     </div>
                 )}
             </div>

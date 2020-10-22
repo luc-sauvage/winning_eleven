@@ -11,13 +11,25 @@ export default function Overview() {
     const ranking = useSelector((state) => state.playerRanking);
 
     const filterGoalkeepers =
-        ranking && ranking.filter((player) => !player.injured && player.position == "Goalkeeper");
+        ranking &&
+        ranking.filter(
+            (player) => !player.injured && player.position == "Goalkeeper"
+        );
     const filterDefenders =
-        ranking && ranking.filter((player) => !player.injured && player.position == "Defender");
+        ranking &&
+        ranking.filter(
+            (player) => !player.injured && player.position == "Defender"
+        );
     const filterMidfielders =
-        ranking && ranking.filter((player) => !player.injured && player.position == "Midfielder");
+        ranking &&
+        ranking.filter(
+            (player) => !player.injured && player.position == "Midfielder"
+        );
     const filterAttackers =
-        ranking && ranking.filter((player) => !player.injured && player.position == "Attacker");
+        ranking &&
+        ranking.filter(
+            (player) => !player.injured && player.position == "Attacker"
+        );
     const filterInjuredPlayers =
         ranking && ranking.filter((player) => player.injured == true);
 

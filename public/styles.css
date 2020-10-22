@@ -169,6 +169,29 @@ a:hover {
         5px 5px 20px rgb(18, 164, 255);
 }
 
+.full-roster-button {
+    height: 35px;
+    border-radius: 5px;
+    background-color: rgb(0, 156, 253);
+    color: white;
+    border-style: none;
+    font-family: "Nunito", sans-serif;
+    outline: none;
+    padding: 0 10px;
+    margin: 5px 10px;
+}
+
+.full-roster-button:hover {
+    background-color: #3ab54a;
+    color: white;
+}
+
+.full-roster-button:active {
+    outline: none;
+    background-color: white;
+    color: rgb(0, 156, 253);
+}
+
 .search-results-container {
     display: flex;
     flex-wrap: wrap;
