@@ -73,17 +73,17 @@ app.get("/checkroster", (req, res) => {
 app.get("/stats/:matchDay", (req, res) => {
     db.fetchStats()
         .then((dbStatResponse) => {
-            console.log("stats db response:", dbStatResponse.rows);
+            /* console.log("stats db response:", dbStatResponse.rows);
             console.log("req.params.matchDay: ", req.params.matchDay);
             console.log(
-                "dbStatResponse.rows[0].match_day: ",
-                dbStatResponse.rows[0].match_day
-            );
+                "dbStatResponse.rows[dbStatResponse.rows.length - 1].match_day: ",
+                dbStatResponse.rows[dbStatResponse.rows.length - 1].match_day
+            ); */
             if (
                 dbStatResponse.rows[dbStatResponse.rows.length - 1]
                     .match_day === null
             ) {
-                console.log("no matchday yet! needs to be added");
+                console.log("no matchday yet! needs to be added UAAAAAAARGHHH");
                 db.setMatchDay(req.params.matchDay).then(
                     (dbStatSecondResponse) => {
                         const logicResults = logic(

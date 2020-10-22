@@ -27,11 +27,14 @@ export default function PlayerStats() {
             .then((deleteConfirmation) => {
                 /* console.log("deleteConfirmation: ", deleteConfirmation); */
                 if (deleteConfirmation) {
+                    console.log("PLAYER ID", playerId);
                     const arrayWithoutDeletedPlayer = arrayWithDeletedPlayer.filter(
-                        (player) => player.id === playerId
+                        (player) => player.id !== playerId
                     );
                     dispatch(setWinningTeam(arrayWithoutDeletedPlayer));
                     dispatch(setPopupState(false));
+                } else {
+                    return;
                 }
             })
             .catch((err) => {

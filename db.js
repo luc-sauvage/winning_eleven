@@ -187,7 +187,7 @@ module.exports.checkRoster = () => {
 };
 
 module.exports.fetchStats = () => {
-    const q = `SELECT * FROM roster`;
+    const q = `SELECT * FROM roster ORDER BY id`;
     return db.query(q);
 };
 
