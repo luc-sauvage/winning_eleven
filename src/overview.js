@@ -134,7 +134,15 @@ export default function Overview() {
                                             {rankedGoalkeeper.firstname}{" "}
                                             {rankedGoalkeeper.lastname}{" "}
                                         </p>
-                                        <p>{rankedGoalkeeper.totalPoints}</p>
+                                        {rankedGoalkeeper.appearences ? (
+                                            <p>
+                                                {rankedGoalkeeper.totalPoints}
+                                            </p>
+                                        ) : (
+                                            <p style={{ color: "red" }}>
+                                                Did not play yet
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
                             );
@@ -155,7 +163,13 @@ export default function Overview() {
                                             {rankedDefender.firstname}{" "}
                                             {rankedDefender.lastname}
                                         </p>
-                                        <p>{rankedDefender.totalPoints}</p>
+                                        {rankedDefender.appearences ? (
+                                            <p>{rankedDefender.totalPoints}</p>
+                                        ) : (
+                                            <p style={{ color: "red" }}>
+                                                Did not play yet
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
                             );
@@ -176,7 +190,15 @@ export default function Overview() {
                                             {rankedMidfielder.firstname}{" "}
                                             {rankedMidfielder.lastname}{" "}
                                         </p>
-                                        <p>{rankedMidfielder.totalPoints}</p>
+                                        {rankedMidfielder.appearences ? (
+                                            <p>
+                                                {rankedMidfielder.totalPoints}
+                                            </p>
+                                        ) : (
+                                            <p style={{ color: "red" }}>
+                                                Did not play yet
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
                             );
@@ -197,7 +219,13 @@ export default function Overview() {
                                             {rankedAttacker.firstname}{" "}
                                             {rankedAttacker.lastname}{" "}
                                         </p>
-                                        <p>{rankedAttacker.totalPoints}</p>
+                                        {rankedAttacker.appearences ? (
+                                            <p>{rankedAttacker.totalPoints}</p>
+                                        ) : (
+                                            <p style={{ color: "red" }}>
+                                                Did not play yet
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
                             );
@@ -219,7 +247,13 @@ export default function Overview() {
                                             {rankedInjured.firstname}{" "}
                                             {rankedInjured.lastname}{" "}
                                         </p>
-                                        <p>{rankedInjured.totalPoints}</p>
+                                        {rankedInjured.appearences ? (
+                                            <p>{rankedInjured.totalPoints}</p>
+                                        ) : (
+                                            <p style={{ color: "red" }}>
+                                                Did not play yet
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
                             );
