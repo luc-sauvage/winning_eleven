@@ -138,171 +138,206 @@ export default function Overview() {
                             </div>
                         );
                     })} */}
-                <div className="role-filtered-results">
-                    <h3 className="role-title-section">Goalkeepers</h3>
-                    {filterGoalkeepers &&
-                        filterGoalkeepers.map((rankedGoalkeeper, i) => {
-                            return (
-                                <div
-                                    className="single-role-result"
-                                    key={i}
-                                    onClick={() => openPopup(rankedGoalkeeper)}
-                                >
-                                    <img
-                                        className="current-roster-img"
-                                        src={rankedGoalkeeper.photo_url}
-                                    ></img>
-                                    <div className="single-role-text-results">
-                                        <p>
-                                            {rankedGoalkeeper.firstname}{" "}
-                                            {rankedGoalkeeper.lastname}{" "}
-                                        </p>
-                                        {rankedGoalkeeper.appearences ? (
-                                            <p>
-                                                {rankedGoalkeeper.totalPoints}
-                                            </p>
-                                        ) : (
-                                            <p style={{ color: "red" }}>
-                                                Did not play yet
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            );
-                        })}
-                </div>
-                <div className="role-filtered-results">
-                    <h3 className="role-title-section">Defender</h3>
-                    {filterDefenders &&
-                        filterDefenders.map((rankedDefender, i) => {
-                            return (
-                                <div
-                                    className="single-role-result"
-                                    key={i}
-                                    onClick={() => openPopup(rankedDefender)}
-                                >
-                                    <img
-                                        className="current-roster-img"
-                                        src={rankedDefender.photo_url}
-                                    ></img>
-                                    <div className="single-role-text-results">
-                                        <p>
-                                            {rankedDefender.firstname}{" "}
-                                            {rankedDefender.lastname}
-                                        </p>
-                                        {rankedDefender.appearences ? (
-                                            <p>{rankedDefender.totalPoints}</p>
-                                        ) : (
-                                            <p style={{ color: "red" }}>
-                                                Did not play yet
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            );
-                        })}
-                </div>
-                <div className="role-filtered-results">
-                    <h3 className="role-title-section">Midfielder</h3>
-                    {filterMidfielders &&
-                        filterMidfielders.map((rankedMidfielder, i) => {
-                            return (
-                                <div
-                                    className="single-role-result"
-                                    key={i}
-                                    onClick={() => openPopup(rankedMidfielder)}
-                                >
-                                    <img
-                                        className="current-roster-img"
-                                        src={rankedMidfielder.photo_url}
-                                    ></img>
-                                    <div className="single-role-text-results">
-                                        <p>
-                                            {rankedMidfielder.firstname}{" "}
-                                            {rankedMidfielder.lastname}{" "}
-                                        </p>
-                                        {rankedMidfielder.appearences ? (
-                                            <p>
-                                                {rankedMidfielder.totalPoints}
-                                            </p>
-                                        ) : (
-                                            <p style={{ color: "red" }}>
-                                                Did not play yet
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            );
-                        })}
-                </div>
-                <div className="role-filtered-results">
-                    <h3 className="role-title-section">Attacker</h3>
-                    {filterAttackers &&
-                        filterAttackers.map((rankedAttacker, i) => {
-                            return (
-                                <div
-                                    className="single-role-result"
-                                    key={i}
-                                    onClick={() => openPopup(rankedAttacker)}
-                                >
-                                    <img
-                                        className="current-roster-img"
-                                        src={rankedAttacker.photo_url}
-                                    ></img>
-                                    <div className="single-role-text-results">
-                                        <p>
-                                            {rankedAttacker.firstname}{" "}
-                                            {rankedAttacker.lastname}{" "}
-                                        </p>
-                                        {rankedAttacker.appearences ? (
-                                            <p>{rankedAttacker.totalPoints}</p>
-                                        ) : (
-                                            <p style={{ color: "red" }}>
-                                                Did not play yet
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            );
-                        })}
-                </div>
-                <div className="role-filtered-results">
-                    <h3 className="role-title-section">Injured players</h3>
-                    {(filterInjuredPlayers &&
-                        filterInjuredPlayers.length > 0 &&
-                        filterInjuredPlayers.map((rankedInjured, i) => {
-                            return (
-                                <div
-                                    className="single-role-result"
-                                    key={i}
-                                    onClick={() => openPopup(rankedInjured)}
-                                >
-                                    <img
-                                        className="current-roster-img"
-                                        src={rankedInjured.photo_url}
-                                    ></img>
-                                    <div className="single-role-text-results">
-                                        <p>
-                                            {rankedInjured.firstname}{" "}
-                                            {rankedInjured.lastname}{" "}
-                                        </p>
-                                        {rankedInjured.appearences ? (
-                                            <p>{rankedInjured.totalPoints}</p>
-                                        ) : (
-                                            <p style={{ color: "red" }}>
-                                                Did not play yet
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            );
-                        })) || (
-                        <p className="no-injuries">
-                            GOOD NEWS!<br></br> No injured players at the
-                            moment.
-                        </p>
-                    )}
-                </div>
+                {!ranking && (
+                    <img className="loader" src="/images/loader.gif"></img>
+                )}
+                {ranking && (
+                    <>
+                        <div className="role-filtered-results">
+                            <h3 className="role-title-section">Goalkeepers</h3>
+                            {filterGoalkeepers &&
+                                filterGoalkeepers.map((rankedGoalkeeper, i) => {
+                                    return (
+                                        <div
+                                            className="single-role-result"
+                                            key={i}
+                                            onClick={() =>
+                                                openPopup(rankedGoalkeeper)
+                                            }
+                                        >
+                                            <img
+                                                className="current-roster-img"
+                                                src={rankedGoalkeeper.photo_url}
+                                            ></img>
+                                            <div className="single-role-text-results">
+                                                <p>
+                                                    {rankedGoalkeeper.firstname}{" "}
+                                                    {rankedGoalkeeper.lastname}{" "}
+                                                </p>
+                                                {rankedGoalkeeper.appearences ? (
+                                                    <p>
+                                                        {
+                                                            rankedGoalkeeper.totalPoints
+                                                        }
+                                                    </p>
+                                                ) : (
+                                                    <p style={{ color: "red" }}>
+                                                        Did not play yet
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                        <div className="role-filtered-results">
+                            <h3 className="role-title-section">Defender</h3>
+                            {filterDefenders &&
+                                filterDefenders.map((rankedDefender, i) => {
+                                    return (
+                                        <div
+                                            className="single-role-result"
+                                            key={i}
+                                            onClick={() =>
+                                                openPopup(rankedDefender)
+                                            }
+                                        >
+                                            <img
+                                                className="current-roster-img"
+                                                src={rankedDefender.photo_url}
+                                            ></img>
+                                            <div className="single-role-text-results">
+                                                <p>
+                                                    {rankedDefender.firstname}{" "}
+                                                    {rankedDefender.lastname}
+                                                </p>
+                                                {rankedDefender.appearences ? (
+                                                    <p>
+                                                        {
+                                                            rankedDefender.totalPoints
+                                                        }
+                                                    </p>
+                                                ) : (
+                                                    <p style={{ color: "red" }}>
+                                                        Did not play yet
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                        <div className="role-filtered-results">
+                            <h3 className="role-title-section">Midfielder</h3>
+                            {filterMidfielders &&
+                                filterMidfielders.map((rankedMidfielder, i) => {
+                                    return (
+                                        <div
+                                            className="single-role-result"
+                                            key={i}
+                                            onClick={() =>
+                                                openPopup(rankedMidfielder)
+                                            }
+                                        >
+                                            <img
+                                                className="current-roster-img"
+                                                src={rankedMidfielder.photo_url}
+                                            ></img>
+                                            <div className="single-role-text-results">
+                                                <p>
+                                                    {rankedMidfielder.firstname}{" "}
+                                                    {rankedMidfielder.lastname}{" "}
+                                                </p>
+                                                {rankedMidfielder.appearences ? (
+                                                    <p>
+                                                        {
+                                                            rankedMidfielder.totalPoints
+                                                        }
+                                                    </p>
+                                                ) : (
+                                                    <p style={{ color: "red" }}>
+                                                        Did not play yet
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                        <div className="role-filtered-results">
+                            <h3 className="role-title-section">Attacker</h3>
+                            {filterAttackers &&
+                                filterAttackers.map((rankedAttacker, i) => {
+                                    return (
+                                        <div
+                                            className="single-role-result"
+                                            key={i}
+                                            onClick={() =>
+                                                openPopup(rankedAttacker)
+                                            }
+                                        >
+                                            <img
+                                                className="current-roster-img"
+                                                src={rankedAttacker.photo_url}
+                                            ></img>
+                                            <div className="single-role-text-results">
+                                                <p>
+                                                    {rankedAttacker.firstname}{" "}
+                                                    {rankedAttacker.lastname}{" "}
+                                                </p>
+                                                {rankedAttacker.appearences ? (
+                                                    <p>
+                                                        {
+                                                            rankedAttacker.totalPoints
+                                                        }
+                                                    </p>
+                                                ) : (
+                                                    <p style={{ color: "red" }}>
+                                                        Did not play yet
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                        <div className="role-filtered-results">
+                            <h3 className="role-title-section">
+                                Injured players
+                            </h3>
+                            {(filterInjuredPlayers &&
+                                filterInjuredPlayers.length > 0 &&
+                                filterInjuredPlayers.map((rankedInjured, i) => {
+                                    return (
+                                        <div
+                                            className="single-role-result"
+                                            key={i}
+                                            onClick={() =>
+                                                openPopup(rankedInjured)
+                                            }
+                                        >
+                                            <img
+                                                className="current-roster-img"
+                                                src={rankedInjured.photo_url}
+                                            ></img>
+                                            <div className="single-role-text-results">
+                                                <p>
+                                                    {rankedInjured.firstname}{" "}
+                                                    {rankedInjured.lastname}{" "}
+                                                </p>
+                                                {rankedInjured.appearences ? (
+                                                    <p>
+                                                        {
+                                                            rankedInjured.totalPoints
+                                                        }
+                                                    </p>
+                                                ) : (
+                                                    <p style={{ color: "red" }}>
+                                                        Did not play yet
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </div>
+                                    );
+                                })) || (
+                                <p className="no-injuries">
+                                    GOOD NEWS!<br></br> No injured players at
+                                    the moment.
+                                </p>
+                            )}
+                        </div>
+                    </>
+                )}
             </div>
             {popup && (
                 <div>
