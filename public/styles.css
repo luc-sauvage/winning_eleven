@@ -438,3 +438,21 @@ a:hover {
 .delete-button:hover {
     background-color: rgb(121, 0, 0);
 }
+
+.logout-button {
+    height: 25px;
+    border-radius: 5px;
+    padding: 7px 10px 5px;
+    background-color: white;
+    color: lightskyblue;
+    border-style: none;
+    font-family: "Nunito", sans-serif;
+    outline: none;
+    margin-left: auto;
+    margin-right: 3.8%;
+}
+
+.logout-button:hover {
+    background-color: red;
+    color: white;
+}

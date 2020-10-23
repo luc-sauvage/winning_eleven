@@ -9,6 +9,7 @@ import {
 } from "./actions";
 import axios from "./axios";
 import PlayerStats from "./player-stats-popup";
+import { Link } from "react-router-dom";
 const { xRapidapiHost, xRapidapiKey } = require("../secrets.json");
 
 export default function Overview() {
@@ -116,10 +117,15 @@ export default function Overview() {
     return (
         <>
             <div className="navbar">
-                <img
-                    className="navbar-logo"
-                    src="/images/logowinning11_navbar.png"
-                ></img>
+                <Link to="/">
+                    <img
+                        className="navbar-logo"
+                        src="/images/logowinning11_navbar.png"
+                    ></img>
+                </Link>
+                <a className="logout-button" href="/logout">
+                    Logout
+                </a>
             </div>
             {/* <h1>Your team</h1> */}
             <div className="big-results-container">

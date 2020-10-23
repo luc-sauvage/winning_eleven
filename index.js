@@ -300,6 +300,12 @@ app.get("/current-roster", (req, res) => {
     });
 });
 
+app.get("/logout", (req, res) => {
+    console.log("logout route running!");
+    req.session = null;
+    res.redirect("/login");
+});
+
 app.get("*", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });

@@ -53,10 +53,12 @@ export default function Players() {
     return (
         <div className="search-page">
             <div className="navbar">
-                <img
-                    className="navbar-logo"
-                    src="/images/logowinning11_navbar.png"
-                ></img>
+                <Link to="/overview">
+                    <img
+                        className="navbar-logo"
+                        src="/images/logowinning11_navbar.png"
+                    ></img>
+                </Link>
                 <input
                     className="search-field"
                     name="player"
