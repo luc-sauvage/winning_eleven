@@ -21,6 +21,10 @@ export default function Players() {
     const currentRoster = useSelector((state) => state.currentRoster);
     // const [players, setPlayers] = useState([]);
 
+    useEffect(() => {
+        dispatch(setLastAddedPlayer(false));
+    }, []);
+
     const handleChange = (e) => {
         setUserInput(e.target.value);
     };
