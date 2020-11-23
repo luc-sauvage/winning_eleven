@@ -8,7 +8,6 @@ import { useStatefulFields } from "../hooks/handlechange";
 export default function Registration() {
     const [values, handleChange] = useStatefulFields();
     const [error, handleSubmit] = useAuthSubmit("/register", values);
-    console.log("values", values);
 
     return (
         <div className="login-registration-page">
@@ -47,6 +46,7 @@ export default function Registration() {
                     name="pass"
                     placeHolder="Your password"
                     autocomplete="off"
+                    type="password"
                     onChange={handleChange}
                 ></input>
                 <button className="button" onClick={handleSubmit}>

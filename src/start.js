@@ -16,6 +16,7 @@ import reducer from "./reducer.js";
 // routing
 
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import ResetPassword from "./resetpassword.js";
 
 const store = createStore(
     reducer,
@@ -31,6 +32,7 @@ elem = (
             <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Players} />
             <Route exact path="/overview" component={Overview} />
+            <Route exact path="/resetpassword" component={ResetPassword} />
         </BrowserRouter>
     </Provider>
 );

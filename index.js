@@ -7,8 +7,9 @@ const mockStats = require("./final_stats.json");
 const { compare, hash } = require("./bc");
 const csurf = require("csurf");
 const axios = require("axios");
-// const xRapidapiHost = require("./secrets.json");
-// const xRapidapiKey = require("./secrets.json");
+const ses = require("./ses.js");
+const cryptoRandomString = require("crypto-random-string");
+
 
 const { xRapidapiHost, xRapidapiKey } = require("./secrets.json");
 var cookieSession = require("cookie-session");
@@ -50,10 +51,12 @@ app.use((req, res, next) => {
         !req.session.userId &&
         req.url != "/login" &&
         req.url != "/registration" &&
-        req.url != "/register"
+        req.url != "/register" && 
+        req.url != "/resetpassword" &&
+        req.url != "/password/reset/start" && 
+        req.url != "/password/reset/set"
     ) {
         res.redirect("/login");
-        console.log("not logged in, redirecting");
     } else {
         next();
     }
@@ -382,6 +385,60 @@ app.post("/login", (req, res) => {
             });
     }
 });
+
+// password reset post-routes
+
+app.post("/password/reset/start", (req, res) => {
+    if (!req.body.email || !req.body.email.includes("@")) {
+        res.json({ success: false });
+        console.log("error with email field")
+    } else {
+        req.session.email = req.body.email;
+        const secretCode = cryptoRandomString({ length: 6, });
+        db.insertCode(req.body.email, secretCode)
+            .then((returnedCode) => {
+                let email = returnedCode.rows[0].email;
+                let code = returnedCode.rows[0].code;
+                ses.send(email, code);
+            })
+            .then(() => {
+                res.json({ success: true });
+            })
+            .catch((e) => {
+                res.json(e);
+            });
+    }
+});
+
+app.post("/password/reset/set", (req, res) => {
+    console.log("reset set route running");
+    console.log("req.body.code", req.body.code);
+    if (!req.body.code || !req.body.pass) {
+        res.json({ success: false });
+    } else {
+        db.checkCode(req.body.email)
+            .then((codeCheck) => {
+                let dbCode = codeCheck.rows[0].code;
+                if (req.body.code === dbCode) {
+                    hash(req.body.pass).then((newPassword) => {
+                        return db
+                            .changePassword(req.body.email, newPassword)
+                            .then(() => {
+                                res.json({ success: true });
+                            })
+                            .catch((e) => {
+                                res.json(e);
+                            });
+                    });
+                } else {
+                    res.json({ success: false });
+                }
+            })
+            .catch((e) => res.json(e));
+    }
+});
+
+////
 
 app.post("/addplayer", async (req, res) => {
     try {

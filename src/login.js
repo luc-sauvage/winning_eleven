@@ -22,16 +22,17 @@ export default function Login() {
                         className="field"
                         name="email"
                         onChange={handleChange}
-                        placeHolder="E-Mail"
-                        autocomplete="off"
+                        placeholder="E-Mail"
+                        autoComplete="off"
                     ></input>
                     {/* <label htmlFor="pass">Your password</label> */}
                     <input
                         className="field"
                         name="pass"
                         onChange={handleChange}
-                        placeHolder="Password"
-                        autocomplete="off"
+                        placeholder="Password"
+                        autoComplete="off"
+                        type="password"
                     ></input>
                     <button className="button" onClick={handleSubmit}>
                         Log-in
@@ -43,7 +44,7 @@ export default function Login() {
                         </p>
                         <p className="question">
                             Forgot password?{" "}
-                            <Link to="/reset">Ask for a new one</Link>
+                            <Link to="/resetpassword">Ask for a new one</Link>
                         </p>
                     </div>
                 </div>

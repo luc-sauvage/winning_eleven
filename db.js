@@ -333,3 +333,30 @@ module.exports.deletePlayer = (playerId) => {
     const params = [playerId];
     return db.query(q, params);
 };
+
+module.exports.insertCode =  (email, code) => {
+    const q = `INSERT into password_reset_codes (email, code)
+    values ($1, $2) RETURNING *`;
+    const params = [email, code]; 
+    return db.query(q, params);
+};
+
+module.exports.checkCode = (email) => {
+    const q = `SELECT * FROM password_reset_codes 
+    WHERE password_reset_codes.email = $1 
+    AND CURRENT_TIMESTAMP - created_at < INTERVAL '10 minutes'
+    ORDER BY created_at DESC 
+    LIMIT 1
+    `;
+    const params = [email];
+    return db.query(q, params);
+};
+
+module.exports.changePassword = (email, password) => {
+    const q = `UPDATE users 
+    SET password = $2
+    WHERE email = $1
+    RETURNING *`;
+    const params = [email, password];
+    return db.query(q, params);
+};

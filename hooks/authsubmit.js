@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "../src/axios";
 
 export function useAuthSubmit(url, values) {
-    console.log("submit running");
     const [error, setError] = useState();
 
     const handleSubmit = (e) => {
