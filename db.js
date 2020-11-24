@@ -181,21 +181,11 @@ module.exports.addPlayer = (
     return db.query(q, params);
 };
 
-/* module.exports.checkRoster = () => {
-    const q = `SELECT COUNT(*) FROM roster`;
-    return db.query(q);
-}; */
-
 module.exports.checkRoster = (userId) => {
     const q = `SELECT COUNT(*) FROM roster WHERE user_id = $1`;
     const params = [userId];
     return db.query(q, params);
 };
-
-/* module.exports.fetchStats = () => {
-    const q = `SELECT * FROM roster ORDER BY id`;
-    return db.query(q);
-}; */
 
 module.exports.fetchStats = (userId) => {
     const q = `SELECT * FROM roster WHERE user_id = $1 ORDER BY id`;
