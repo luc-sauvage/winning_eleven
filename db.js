@@ -181,21 +181,34 @@ module.exports.addPlayer = (
     return db.query(q, params);
 };
 
-module.exports.checkRoster = () => {
+/* module.exports.checkRoster = () => {
     const q = `SELECT COUNT(*) FROM roster`;
     return db.query(q);
+}; */
+
+module.exports.checkRoster = (userId) => {
+    const q = `SELECT COUNT(*) FROM roster WHERE user_id = $1`;
+    const params = [userId];
+    return db.query(q, params);
 };
 
-module.exports.fetchStats = () => {
+/* module.exports.fetchStats = () => {
     const q = `SELECT * FROM roster ORDER BY id`;
     return db.query(q);
-};
+}; */
 
-module.exports.setMatchDay = (matchDay) => {
+module.exports.fetchStats = (userId) => {
+    const q = `SELECT * FROM roster WHERE user_id = $1 ORDER BY id`;
+    const params = [userId];
+    return db.query(q, params);
+}; 
+
+module.exports.setMatchDay = (matchDay, userId) => {
     const q = `UPDATE roster 
         SET match_day = $1 
+        WHERE user_id = $2
         RETURNING *`;
-    const params = [matchDay];
+    const params = [matchDay, userId];
     return db.query(q, params);
 };
 

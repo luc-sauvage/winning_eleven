@@ -82,17 +82,6 @@ export default function Overview() {
 
                         let rankedPlayersArray = [...serverResponse.data];
 
-                        // let filterHealthyPlayers = rankedPlayersArray.filter(
-                        //     (player) => player.injured == false
-                        // );
-
-                        // console.log(
-                        //     "filterHealthyPlayers: ",
-                        //     filterHealthyPlayers
-                        // );
-
-                        // filterHealthyPlayers.sort(compareTotalpoints);
-
                         rankedPlayersArray.sort(compareTotalpoints);
 
                         dispatch(setWinningTeam(rankedPlayersArray));
@@ -100,13 +89,6 @@ export default function Overview() {
             })
             .catch((error) => console.log("error: ", error));
     }, []);
-
-    /* console.log("ranking: ", ranking);
-    console.log("filterGoalkeepers: ", filterGoalkeepers);
-    console.log("filterDefenders: ", filterDefenders);
-    console.log("filterMidfielders: ", filterMidfielders);
-    console.log("filterAttackers: ", filterAttackers);
-    console.log("filterInjuredPlayers: ", filterInjuredPlayers); */
 
     function openPopup(playerInfo) {
         console.log("playerInfo: ", playerInfo);
@@ -129,15 +111,6 @@ export default function Overview() {
             </div>
             {/* <h1>Your team</h1> */}
             <div className="big-results-container">
-                {/* {ranking &&
-                    ranking.map((rankedPlayer, i) => {
-                        return (
-                            <div key={i}>
-                                {rankedPlayer.firstname} {rankedPlayer.lastname}{" "}
-                                {rankedPlayer.totalPoints}
-                            </div>
-                        );
-                    })} */}
                 {!ranking && (
                     <img className="loader" src="/images/loader.gif"></img>
                 )}

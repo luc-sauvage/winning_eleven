@@ -64,7 +64,7 @@ app.use((req, res, next) => {
 
 // counting the numbers of players in the roster, deactivating "add to roster" if > 25
 app.get("/checkroster", (req, res) => {
-    db.checkRoster()
+    db.checkRoster(req.session.userId)
         .then(({ rows }) => {
             res.json(rows[0].count);
         })
@@ -74,30 +74,17 @@ app.get("/checkroster", (req, res) => {
 });
 
 app.get("/stats/:matchDay", (req, res) => {
-    db.fetchStats()
+    db.fetchStats(req.session.userId)
         .then((dbStatResponse) => {
-            /* console.log("stats db response:", dbStatResponse.rows);
-            console.log("req.params.matchDay: ", req.params.matchDay);
-            console.log(
-                "dbStatResponse.rows[dbStatResponse.rows.length - 1].match_day: ",
-                dbStatResponse.rows[dbStatResponse.rows.length - 1].match_day
-            ); */
             if (
                 dbStatResponse.rows[dbStatResponse.rows.length - 1]
                     .match_day === null
             ) {
-                console.log(
-                    "no matchday for all players yet! needs to be added"
-                );
-                db.setMatchDay(req.params.matchDay).then(
+                db.setMatchDay(req.params.matchDay, req.session.userId).then(
                     (dbStatSecondResponse) => {
                         const logicResults = logic(
                             dbStatSecondResponse.rows,
                             req.params.matchDay
-                        );
-                        console.log(
-                            "logicResults matchDay just added: ",
-                            logicResults
                         );
                         res.json(logicResults);
                     }
@@ -105,25 +92,16 @@ app.get("/stats/:matchDay", (req, res) => {
             } else if (
                 dbStatResponse.rows[0].match_day == req.params.matchDay
             ) {
-                // this is the query for when stats have already been fetched from API and stored in database
-                // remember to call the statistics table column "match_day"
-                console.log("matchday is up to date!");
                 const logicResults = logic(
                     dbStatResponse.rows,
                     req.params.matchDay
                 );
-                console.log(
-                    "logicResults matchDay didn't change: ",
-                    logicResults
-                );
                 res.json(logicResults);
             } else {
-                console.log("matchday is not up to date, updating stats");
                 const playerIds = dbStatResponse.rows.map((player) => {
                     const playerId = player.player_id;
                     return playerId;
                 });
-                /* console.log("logging playerId array: ", playerIds); */
                 const allPlayersInfo = [];
                 for (let playerId of playerIds) {
                     const playerInfo = axios.get(
@@ -135,29 +113,20 @@ app.get("/stats/:matchDay", (req, res) => {
                             },
                         }
                     );
-                    /* console.log("playerInfo: ", playerInfo); */
 
                     allPlayersInfo.push(playerInfo);
                 }
                 Promise.all(allPlayersInfo)
                     .then((arrOfResults) => {
-                        /* console.log("promise resolved");
-                    console.log("arrOfResults: ", arrOfResults); */
                         return arrOfResults.map((result) => {
                             return result.data.response[0];
                         });
                     })
                     .then((results) => {
-                        /* console.log("results: ", results);
-                    console.log("results player info", results[0].player);
-                    console.log("results player stats", results[0].statistics); */
-
-                        //dentro ad un loop probabilmente
 
                         const arrayOfUpdatePromises = [];
 
                         for (let result of results) {
-                            console.log("result: ", result);
                             const selectedPlayerPlayerInfo = result.player;
                             const selectedPlayerStatistics =
                                 result.statistics[0];
@@ -271,17 +240,9 @@ app.get("/stats/:matchDay", (req, res) => {
                     })
                     .then(() => {
                         db.fetchStats().then((dbResponseAfterUpdating) => {
-                            /* console.log(
-                            "dbResponseAfterUpdating.rows",
-                            dbResponseAfterUpdating.rows
-                        ); */
                             const logicResults = logic(
                                 dbResponseAfterUpdating.rows,
                                 req.params.matchDay
-                            );
-                            console.log(
-                                "logicResults matchDay did change: ",
-                                logicResults
                             );
                             res.json(logicResults);
                         });
@@ -297,14 +258,12 @@ app.get("/stats/:matchDay", (req, res) => {
 });
 
 app.get("/current-roster", (req, res) => {
-    db.fetchStats().then((returnedRosterInfo) => {
-        /* console.log("returnedRosterInfo.rows: ", returnedRosterInfo.rows); */
+    db.fetchStats(req.session.userId).then((returnedRosterInfo) => {
         res.json(returnedRosterInfo.rows);
     });
 });
 
 app.get("/logout", (req, res) => {
-    console.log("logout route running!");
     req.session = null;
     res.redirect("/login");
 });
@@ -337,7 +296,6 @@ app.post("/register", (req, res) => {
                 );
             })
             .then((registrationReturn) => {
-                console.log("registrationReturn", registrationReturn);
                 req.session.userId = registrationReturn.rows[0].id;
                 req.session.firstName = registrationReturn.rows[0].first;
                 res.json({ success: true });
@@ -352,9 +310,6 @@ app.post("/register", (req, res) => {
 app.post("/login", (req, res) => {
     if (!req.body.email || !req.body.pass || !req.body.email.includes("@")) {
         res.json({ success: false });
-        console.log("ERROR while Logging in: ");
-        console.log("req.body.email: ", req.body.email);
-        console.log("req.body.pass: ", req.body.pass);
     } else {
         db.getPassword(req.body.email)
             .then((returnedPassword) => {
@@ -391,7 +346,6 @@ app.post("/login", (req, res) => {
 app.post("/password/reset/start", (req, res) => {
     if (!req.body.email || !req.body.email.includes("@")) {
         res.json({ success: false });
-        console.log("error with email field")
     } else {
         req.session.email = req.body.email;
         const secretCode = cryptoRandomString({ length: 6, });
@@ -411,8 +365,6 @@ app.post("/password/reset/start", (req, res) => {
 });
 
 app.post("/password/reset/set", (req, res) => {
-    console.log("reset set route running");
-    console.log("req.body.code", req.body.code);
     if (!req.body.code || !req.body.pass) {
         res.json({ success: false });
     } else {
@@ -438,11 +390,10 @@ app.post("/password/reset/set", (req, res) => {
     }
 });
 
-////
+//// add player post routes
 
 app.post("/addplayer", async (req, res) => {
     try {
-        console.log("data from selected player: ", req.body);
         const playerAddResponse = await db.addPlayer(
             req.body.player_id,
             req.body.firstname,
