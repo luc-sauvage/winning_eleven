@@ -1,4 +1,4 @@
-# winning11
+# winning eleven
 <h2>your fantasy soccer helper</h2> 
 
 React based app working on a node.js back end, fetches stats from external API, updates and stores them in local structured database in order to suggest best team to field (based on user-customisable roster of players). 
